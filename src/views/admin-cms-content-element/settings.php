@@ -10,6 +10,6 @@
 /* @var $controller \skeeks\cms\controllers\AdminCmsContentElementController */
 $controller = $action->controller;
 ?>
-<?= $this->render('@skeeks/cms/views/admin-cms-content/_form.php', [
+<?php echo $this->render('@skeeks/cms/views/admin-cms-content/_form.php', [
     'model' => $controller->content
 ]); ?>

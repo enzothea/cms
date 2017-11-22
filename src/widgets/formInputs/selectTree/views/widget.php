@@ -16,24 +16,24 @@ use \skeeks\cms\widgets\formInputs\selectTree\SelectTree;
  */
 ?>
 
-    <div id="<?= $id; ?>">
+    <div id="<?php echo $id; ?>">
         <p>
             <? if ($widget->mode == SelectTree::MOD_COMBO) : ?>
 
-                <small><?= \Yii::t('skeeks/cms',
+                <small><?php echo \Yii::t('skeeks/cms',
                         'Circle — the main section (you can choose one section, it will affect the construction of bread crumbs)') ?></small>
                 <br/>
-                <small><?= \Yii::t('skeeks/cms',
+                <small><?php echo \Yii::t('skeeks/cms',
                         'The square - an additional section (you can mark several additional sections)') ?></small>
             <? elseif ($widget->mode == SelectTree::MOD_MULTI) : ?>
-                <small><?= \Yii::t('skeeks/cms',
+                <small><?php echo \Yii::t('skeeks/cms',
                         'The square - an additional section (you can mark several additional sections)') ?></small>
             <? endif; ?>
         </p>
-        <iframe data-src="<?= $src; ?>" width="100%;" height="200px;" id="<?= $idSmartFrame; ?>"></iframe>
+        <iframe data-src="<?php echo $src; ?>" width="100%;" height="200px;" id="<?php echo $idSmartFrame; ?>"></iframe>
         <div class="sx-selected">
-            <?= $select; ?>
-            <?= $singleInput; ?>
+            <?php echo $select; ?>
+            <?php echo $singleInput; ?>
         </div>
     </div>
 

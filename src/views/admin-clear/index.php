@@ -13,13 +13,13 @@ $data = \yii\helpers\Json::encode([
 ?>
 
     <div class="sx-box sx-p-10 sx-bg-primary">
-        <?= \yii\helpers\Html::a(\Yii::t('skeeks/cms', 'Delete temporary files'), $url, [
+        <?php echo \yii\helpers\Html::a(\Yii::t('skeeks/cms', 'Delete temporary files'), $url, [
             'class' => 'btn btn-primary',
             'onclick' => 'new sx.classes.Clear(' . $data . '); return false;'
         ]); ?>
         <hr/>
 
-        <?= \skeeks\cms\modules\admin\widgets\GridView::widget([
+        <?php echo \skeeks\cms\modules\admin\widgets\GridView::widget([
             'dataProvider' => new \yii\data\ArrayDataProvider([
                 'allModels' => $clearDirs
             ]),

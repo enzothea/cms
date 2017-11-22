@@ -17,14 +17,14 @@ JS
 );
 ?>
 
-<?= $form->field($model, 'value')->textInput([
+<?php echo $form->field($model, 'value')->textInput([
     'placeholder' => '+7 903 722-28-73'
 ])->hint('Формат ввода телефона: +7 903 722-28-73'); ?>
 
 <? if (\Yii::$app->request->get('user_id')) : ?>
-    <?= $form->field($model, 'user_id')->hiddenInput(['value' => \Yii::$app->request->get('user_id')])->label(false) ?>
+    <?php echo $form->field($model, 'user_id')->hiddenInput(['value' => \Yii::$app->request->get('user_id')])->label(false) ?>
 <? else: ?>
-    <?= $form->fieldSelect($model, 'user_id', \yii\helpers\ArrayHelper::map(
+    <?php echo $form->fieldSelect($model, 'user_id', \yii\helpers\ArrayHelper::map(
         \skeeks\cms\models\User::find()->active()->all(),
         'id',
         'displayName'
@@ -34,7 +34,7 @@ JS
 <? endif; ?>
 
 
-<?= $form->fieldRadioListBoolean($model, 'approved'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'approved'); ?>
 
-<?= $form->buttonsCreateOrUpdate($model); ?>
+<?php echo $form->buttonsCreateOrUpdate($model); ?>
 <?php ActiveForm::end(); ?>

@@ -201,7 +201,7 @@ JS
 
     ?>
 
-    <?= \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
+    <?php echo \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'enabledCheckbox' => false,

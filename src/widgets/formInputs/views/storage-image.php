@@ -88,8 +88,8 @@ JS
             <? if ($imageFile = $widget->image) : ?>
                 <div class="sx-image">
                     <? if (!$widget->viewItemTemplate) : ?>
-                        <a href="<?= $imageFile->src; ?>" class="sx-fancybox" data-pjax="0">
-                            <img src="<?= \Yii::$app->imaging->getImagingUrl($imageFile->src,
+                        <a href="<?php echo $imageFile->src; ?>" class="sx-fancybox" data-pjax="0">
+                            <img src="<?php echo \Yii::$app->imaging->getImagingUrl($imageFile->src,
                                 new \skeeks\cms\components\imaging\filters\Thumbnail()); ?>"/>
                         </a>
                         <div class="sx-controlls">
@@ -108,7 +108,7 @@ JS
                             ?>
                         </div>
                     <? else : ?>
-                        <?= $widget->renderItem($imageFile); ?>
+                        <?php echo $widget->renderItem($imageFile); ?>
                     <? endif; ?>
 
                 </div>
@@ -119,7 +119,7 @@ JS
     <? \skeeks\cms\modules\admin\widgets\Pjax::end(); ?>
 
     <div class="sx-controlls">
-        <?= \skeeks\cms\widgets\StorageFileManager::widget([
+        <?php echo \skeeks\cms\widgets\StorageFileManager::widget([
             'clientOptions' =>
                 [
                     'simpleUpload' =>

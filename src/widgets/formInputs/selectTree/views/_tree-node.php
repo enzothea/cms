@@ -13,9 +13,9 @@ $widget = $this->context;
 $selectTreeInputWidget = \yii\helpers\ArrayHelper::getValue($widget->contextData, 'selectTreeInputWidget');
 ?>
 
-<?= $selectTreeInputWidget->renderNodeControll($model); ?>
-<div class="sx-label-node level-<?= $model->level; ?> status-<?= $model->active; ?>">
-    <a href="<?= $widget->getOpenCloseLink($model); ?>"><?= $selectTreeInputWidget->renderNodeName($model); ?></a>
+<?php echo $selectTreeInputWidget->renderNodeControll($model); ?>
+<div class="sx-label-node level-<?php echo $model->level; ?> status-<?php echo $model->active; ?>">
+    <a href="<?php echo $widget->getOpenCloseLink($model); ?>"><?php echo $selectTreeInputWidget->renderNodeName($model); ?></a>
 </div>
 
 <!-- Possible actions -->

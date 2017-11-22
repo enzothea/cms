@@ -11,25 +11,25 @@
     'namespace' => \Yii::$app->controller->uniqueId . "_" . $content_id
 ]); ?>
 
-<?= \yii\helpers\Html::hiddenInput('content_id', $content_id) ?>
+<?php echo \yii\helpers\Html::hiddenInput('content_id', $content_id) ?>
 
-<?= $form->field($searchModel, 'id'); ?>
+<?php echo $form->field($searchModel, 'id'); ?>
 
-<?= $form->field($searchModel, 'q')->textInput([
+<?php echo $form->field($searchModel, 'q')->textInput([
     'placeholder' => \Yii::t('skeeks/cms', 'Search name and description')
 ])->setVisible(); ?>
 
-<?= $form->field($searchModel, 'name')->textInput([
+<?php echo $form->field($searchModel, 'name')->textInput([
     'placeholder' => \Yii::t('skeeks/cms', 'Search by name')
 ]) ?>
 
-<?= $form->field($searchModel, 'active')->listBox(\yii\helpers\ArrayHelper::merge([
+<?php echo $form->field($searchModel, 'active')->listBox(\yii\helpers\ArrayHelper::merge([
     '' => ' - '
 ], \Yii::$app->cms->booleanFormat()), [
     'size' => 1
 ]); ?>
 
-<?= $form->field($searchModel, 'section')->widget(
+<?php echo $form->field($searchModel, 'section')->widget(
     \skeeks\cms\backend\widgets\SelectModelDialogTreeWidget::class
 ); ?>
 
@@ -41,40 +41,40 @@
     ); */ ?>
 
 
-<?= $form->field($searchModel, 'has_image')->checkbox(\Yii::$app->formatter->booleanFormat, false); ?>
-<?= $form->field($searchModel, 'has_full_image')->checkbox(\Yii::$app->formatter->booleanFormat, false); ?>
+<?php echo $form->field($searchModel, 'has_image')->checkbox(\Yii::$app->formatter->booleanFormat, false); ?>
+<?php echo $form->field($searchModel, 'has_full_image')->checkbox(\Yii::$app->formatter->booleanFormat, false); ?>
 
 
-<?= $form->field($searchModel, 'created_by')->widget(
+<?php echo $form->field($searchModel, 'created_by')->widget(
     \skeeks\cms\backend\widgets\SelectModelDialogUserWidget::class
 ); ?>
-<?= $form->field($searchModel, 'updated_by')->widget(
+<?php echo $form->field($searchModel, 'updated_by')->widget(
     \skeeks\cms\backend\widgets\SelectModelDialogUserWidget::class
 ); ?>
 
 
-<?= $form->field($searchModel, 'created_at_from')->widget(
+<?php echo $form->field($searchModel, 'created_at_from')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
-<?= $form->field($searchModel, 'created_at_to')->widget(
-    \kartik\datetime\DateTimePicker::className()
-); ?>
-
-<?= $form->field($searchModel, 'updated_at_from')->widget(
-    \kartik\datetime\DateTimePicker::className()
-); ?>
-<?= $form->field($searchModel, 'updated_at_to')->widget(
+<?php echo $form->field($searchModel, 'created_at_to')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
 
-<?= $form->field($searchModel, 'published_at_from')->widget(
+<?php echo $form->field($searchModel, 'updated_at_from')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
-<?= $form->field($searchModel, 'published_at_to')->widget(
+<?php echo $form->field($searchModel, 'updated_at_to')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
 
-<?= $form->field($searchModel, 'code'); ?>
+<?php echo $form->field($searchModel, 'published_at_from')->widget(
+    \kartik\datetime\DateTimePicker::className()
+); ?>
+<?php echo $form->field($searchModel, 'published_at_to')->widget(
+    \kartik\datetime\DateTimePicker::className()
+); ?>
+
+<?php echo $form->field($searchModel, 'code'); ?>
 
 
 <?
@@ -82,6 +82,6 @@ $searchRelatedPropertiesModel = new \skeeks\cms\models\searchs\SearchRelatedProp
 $searchRelatedPropertiesModel->initProperties($cmsContent->cmsContentProperties);
 $searchRelatedPropertiesModel->load(\Yii::$app->request->get());
 ?>
-<?= $form->relatedFields($searchRelatedPropertiesModel); ?>
+<?php echo $form->relatedFields($searchRelatedPropertiesModel); ?>
 
 <? $form::end(); ?>

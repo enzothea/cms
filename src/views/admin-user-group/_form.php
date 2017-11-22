@@ -12,11 +12,11 @@ use skeeks\cms\models\Tree;
 
 <?php $form = ActiveForm::begin(); ?>
 
-<?= $form->field($model, 'groupname')->textInput(['maxlength' => 12]) ?>
-<?= $form->field($model, 'description')->textarea() ?>
+<?php echo $form->field($model, 'groupname')->textInput(['maxlength' => 12]) ?>
+<?php echo $form->field($model, 'description')->textarea() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('skeeks/cms', 'Create') : Yii::t('skeeks/cms', 'Update'),
+        <?php echo Html::submitButton($model->isNewRecord ? Yii::t('skeeks/cms', 'Create') : Yii::t('skeeks/cms', 'Update'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 <?php ActiveForm::end(); ?>

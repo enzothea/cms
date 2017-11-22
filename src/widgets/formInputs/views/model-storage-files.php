@@ -95,12 +95,12 @@ JS
                             <? if (!$widget->viewItemTemplate) : ?>
 
                                 <? if ($imageFile->isImage()) : ?>
-                                    <a href="<?= $imageFile->src; ?>" class="sx-fancybox" data-pjax="0">
-                                        <img src="<?= \Yii::$app->imaging->getImagingUrl($imageFile->src,
+                                    <a href="<?php echo $imageFile->src; ?>" class="sx-fancybox" data-pjax="0">
+                                        <img src="<?php echo \Yii::$app->imaging->getImagingUrl($imageFile->src,
                                             new \skeeks\cms\components\imaging\filters\Thumbnail()); ?>"/>
                                     </a>
                                 <? else : ?>
-                                    <?= $imageFile->name ? $imageFile->name : $imageFile->original_name; ?>
+                                    <?php echo $imageFile->name ? $imageFile->name : $imageFile->original_name; ?>
                                 <? endif; ?>
 
                                 <div class="sx-controlls">
@@ -123,7 +123,7 @@ JS
                                     ?>
                                 </div>
                             <? else : ?>
-                                <?= $widget->renderItem($imageFile); ?>
+                                <?php echo $widget->renderItem($imageFile); ?>
                             <? endif; ?>
                         </div>
                     <? endif; ?>
@@ -135,7 +135,7 @@ JS
     <? \skeeks\cms\modules\admin\widgets\Pjax::end(); ?>
 
     <div class="sx-controlls">
-        <?= \skeeks\cms\widgets\StorageFileManager::widget(\yii\helpers\ArrayHelper::merge([
+        <?php echo \skeeks\cms\widgets\StorageFileManager::widget(\yii\helpers\ArrayHelper::merge([
             'clientOptions' =>
                 [
                     'simpleUpload' =>

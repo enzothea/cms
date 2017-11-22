@@ -32,7 +32,7 @@ $dataProvider->getSort()->attributes = \yii\helpers\ArrayHelper::merge($sortAttr
     'dataProvider' => $dataProvider,
 ]); ?>
 
-<?= \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     //'autoColumns'       => false,

@@ -25,6 +25,6 @@ if ($filter->id) {
     'action' => '/' . \Yii::$app->request->pathInfo,
 ]); ?>
 
-<?= $form->field($searchModel, 'value')->setVisible(); ?>
+<?php echo $form->field($searchModel, 'value')->setVisible(); ?>
 
 <? $form::end(); ?>

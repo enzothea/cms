@@ -7,12 +7,12 @@ use skeeks\cms\modules\admin\widgets\ActiveForm;
 /* @var $model \yii\db\ActiveRecord */
 ?>
 <?php $form = ActiveForm::begin(); ?>
-<?= $form->field($model, 'value')->textInput(['maxlength' => 255]) ?>
+<?php echo $form->field($model, 'value')->textInput(['maxlength' => 255]) ?>
 
 <? if (\Yii::$app->request->get('user_id')) : ?>
-    <?= $form->field($model, 'user_id')->hiddenInput(['value' => \Yii::$app->request->get('user_id')])->label(false) ?>
+    <?php echo $form->field($model, 'user_id')->hiddenInput(['value' => \Yii::$app->request->get('user_id')])->label(false) ?>
 <? else: ?>
-    <?= $form->fieldSelect($model, 'user_id', \yii\helpers\ArrayHelper::map(
+    <?php echo $form->fieldSelect($model, 'user_id', \yii\helpers\ArrayHelper::map(
         \skeeks\cms\models\User::find()->active()->all(),
         'id',
         'displayName'
@@ -22,8 +22,8 @@ use skeeks\cms\modules\admin\widgets\ActiveForm;
 <? endif; ?>
 
 
-<?= $form->fieldRadioListBoolean($model, 'approved'); ?>
-<?= $form->fieldRadioListBoolean($model, 'def'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'approved'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'def'); ?>
 
-<?= $form->buttonsCreateOrUpdate($model); ?>
+<?php echo $form->buttonsCreateOrUpdate($model); ?>
 <?php ActiveForm::end(); ?>

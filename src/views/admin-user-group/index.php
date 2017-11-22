@@ -15,7 +15,7 @@
 
 ?>
 
-<?= \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'columns' => [

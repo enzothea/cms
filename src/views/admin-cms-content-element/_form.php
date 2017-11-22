@@ -74,54 +74,54 @@ JS
         <? if ($content_id = \Yii::$app->request->get("content_id")) : ?>
             <? $contentModel = \skeeks\cms\models\CmsContent::findOne($content_id); ?>
             <? $model->content_id = $content_id; ?>
-            <?= $form->field($model, 'content_id')->hiddenInput(['value' => $content_id])->label(false); ?>
+            <?php echo $form->field($model, 'content_id')->hiddenInput(['value' => $content_id])->label(false); ?>
         <? endif; ?>
     <? else : ?>
         <? $contentModel = $model->cmsContent; ?>
     <? endif; ?>
 
     <? if ($contentModel && $contentModel->parentContent) : ?>
-        <?= Html::activeHiddenInput($contentModel, 'parent_content_is_required'); ?>
+        <?php echo Html::activeHiddenInput($contentModel, 'parent_content_is_required'); ?>
     <? endif; ?>
 </div>
 
-<?= $this->render('_form-main', [
+<?php echo $this->render('_form-main', [
     'form' => $form,
     'contentModel' => $contentModel,
     'model' => $model,
 ]); ?>
 
-<?= $this->render('_form-announce', [
+<?php echo $this->render('_form-announce', [
     'form' => $form,
     'contentModel' => $contentModel,
     'model' => $model,
 ]); ?>
 
-<?= $this->render('_form-detail', [
+<?php echo $this->render('_form-detail', [
     'form' => $form,
     'contentModel' => $contentModel,
     'model' => $model,
 ]); ?>
 
-<?= $this->render('_form-sections', [
+<?php echo $this->render('_form-sections', [
     'form' => $form,
     'contentModel' => $contentModel,
     'model' => $model,
 ]); ?>
 
-<?= $this->render('_form-seo', [
+<?php echo $this->render('_form-seo', [
     'form' => $form,
     'contentModel' => $contentModel,
     'model' => $model,
 ]); ?>
 
-<?= $this->render('_form-images', [
+<?php echo $this->render('_form-images', [
     'form' => $form,
     'contentModel' => $contentModel,
     'model' => $model,
 ]); ?>
 
-<?= $this->render('_form-additionaly', [
+<?php echo $this->render('_form-additionaly', [
     'form' => $form,
     'contentModel' => $contentModel,
     'model' => $model,
@@ -132,13 +132,13 @@ JS
 
 <? if (!$model->isNewRecord) : ?>
     <? if ($model->cmsContent->access_check_element == "Y") : ?>
-        <?= $form->fieldSet(\Yii::t('skeeks/cms', 'Access')); ?>
-        <?= \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
+        <?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Access')); ?>
+        <?php echo \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
             'permissionName' => $model->permissionName,
             'permissionDescription' => 'Доступ к этому элементу: ' . $model->name,
             'label' => 'Доступ к этому элементу',
         ]); ?>
-        <?= $form->fieldSetEnd() ?>
+        <?php echo $form->fieldSetEnd() ?>
     <? endif; ?>
 <? endif; ?>
 
@@ -151,11 +151,11 @@ JS
      */
     ?>
     <? foreach ($model->cmsContent->childrenContents as $childContent) : ?>
-        <?= $form->fieldSet($childContent->name); ?>
+        <?php echo $form->fieldSet($childContent->name); ?>
 
         <? if ($model->isNewRecord) : ?>
 
-            <?= \yii\bootstrap\Alert::widget([
+            <?php echo \yii\bootstrap\Alert::widget([
                 'options' =>
                     [
                         'class' => 'alert-warning'
@@ -163,7 +163,7 @@ JS
                 'body' => \Yii::t('skeeks/cms', 'Management will be available after saving')
             ]); ?>
         <? else: ?>
-            <?= \skeeks\cms\modules\admin\widgets\RelatedModelsGrid::widget([
+            <?php echo \skeeks\cms\modules\admin\widgets\RelatedModelsGrid::widget([
                 'label' => $childContent->name,
                 'namespace' => md5($model->className() . $childContent->id),
                 'parentModel' => $model,
@@ -190,12 +190,12 @@ JS
 
 
 
-        <?= $form->fieldSetEnd() ?>
+        <?php echo $form->fieldSetEnd() ?>
     <? endforeach; ?>
 <? endif; ?>
 
 
 
-<?= $form->buttonsStandart($model); ?>
+<?php echo $form->buttonsStandart($model); ?>
 <?php echo $form->errorSummary([$model, $relatedModel]); ?>
 <?php ActiveForm::end(); ?>

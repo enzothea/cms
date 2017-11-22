@@ -27,17 +27,17 @@ $this->title = \Yii::t('skeeks/cms', 'Registration');
                     <?php $form = ActiveForm::begin([
                         'validationUrl' => UrlHelper::construct('cms/auth/register')->setSystemParam(\skeeks\cms\helpers\RequestResponse::VALIDATION_AJAX_FORM_SYSTEM_NAME)->toString()
                     ]); ?>
-                    <?= $form->field($model, 'username') ?>
-                    <?= $form->field($model, 'email') ?>
-                    <?= $form->field($model, 'password')->passwordInput() ?>
+                    <?php echo $form->field($model, 'username') ?>
+                    <?php echo $form->field($model, 'email') ?>
+                    <?php echo $form->field($model, 'password')->passwordInput() ?>
 
                     <div class="form-group">
-                        <?= Html::submitButton("<i class=\"glyphicon glyphicon-off\"></i> " . \Yii::t('skeeks/cms',
+                        <?php echo Html::submitButton("<i class=\"glyphicon glyphicon-off\"></i> " . \Yii::t('skeeks/cms',
                                 'Sign up'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                     </div>
 
                     <?php ActiveForm::end(); ?>
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Authorization'),
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Authorization'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/login')->toString()) ?>
                 </div>
 

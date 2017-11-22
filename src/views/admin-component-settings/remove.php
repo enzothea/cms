@@ -10,26 +10,26 @@
 /* @var $this yii\web\View */
 ?>
 
-<?= $this->render('_header', [
+<?php echo $this->render('_header', [
     'component' => $component
 ]); ?>
 
 
 <div class="sx-box sx-mb-10 sx-p-10">
-    <p><?= \Yii::t('skeeks/cms', 'Erase all the settings from the database for this component.') ?></p>
+    <p><?php echo \Yii::t('skeeks/cms', 'Erase all the settings from the database for this component.') ?></p>
     <? if ($settingsAllCount = \skeeks\cms\models\CmsComponentSettings::findByComponent($component)->count()) : ?>
-        <p><b><?= \Yii::t('skeeks/cms', 'Total found') ?>:</b> <?= $settingsAllCount; ?></p>
+        <p><b><?php echo \Yii::t('skeeks/cms', 'Total found') ?>:</b> <?php echo $settingsAllCount; ?></p>
         <button type="submit" class="btn btn-danger btn-xs"
                 onclick="sx.ComponentSettings.Remove.removeAll(); return false;">
-            <i class="glyphicon glyphicon-remove"></i> <?= \Yii::t('skeeks/cms', 'reset all settings') ?>
+            <i class="glyphicon glyphicon-remove"></i> <?php echo \Yii::t('skeeks/cms', 'reset all settings') ?>
         </button>
     <? else: ?>
-        <small><?= \Yii::t('skeeks/cms', 'The database no settings for this component.') ?></small>
+        <small><?php echo \Yii::t('skeeks/cms', 'The database no settings for this component.') ?></small>
     <? endif; ?>
 </div>
 
 
-<?= $this->render('_footer'); ?>
+<?php echo $this->render('_footer'); ?>
 
 
 

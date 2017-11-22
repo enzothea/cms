@@ -27,19 +27,19 @@ $this->title = \Yii::t('skeeks/cms', 'Authorization');
                     <?php $form = ActiveForm::begin([
                         'validationUrl' => UrlHelper::construct('cms/auth/login')->setSystemParam(\skeeks\cms\helpers\RequestResponse::VALIDATION_AJAX_FORM_SYSTEM_NAME)->toString()
                     ]); ?>
-                    <?= $form->field($model, 'identifier') ?>
-                    <?= $form->field($model, 'password')->passwordInput() ?>
-                    <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                    <?php echo $form->field($model, 'identifier') ?>
+                    <?php echo $form->field($model, 'password')->passwordInput() ?>
+                    <?php echo $form->field($model, 'rememberMe')->checkbox() ?>
 
                     <div class="form-group">
-                        <?= Html::submitButton("<i class=\"glyphicon glyphicon-off\"></i> " . \Yii::t('skeeks/cms',
+                        <?php echo Html::submitButton("<i class=\"glyphicon glyphicon-off\"></i> " . \Yii::t('skeeks/cms',
                                 'Log in'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                     </div>
 
                     <?php ActiveForm::end(); ?>
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Forgot your password?'),
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Forgot your password?'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/forget')->toString()) ?> |
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Registration'),
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Registration'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/register')->toString()) ?>
                 </div>
 

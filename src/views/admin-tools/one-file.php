@@ -7,12 +7,12 @@
  */
 $imageFile = $model;
 ?>
-<a href="<?= $imageFile->src; ?>" class="sx-fancybox" data-pjax="0">
-    <img src="<?= \Yii::$app->imaging->getImagingUrl($imageFile->src,
+<a href="<?php echo $imageFile->src; ?>" class="sx-fancybox" data-pjax="0">
+    <img src="<?php echo \Yii::$app->imaging->getImagingUrl($imageFile->src,
         new \skeeks\cms\components\imaging\filters\Thumbnail()); ?>"/>
 </a>
 <div class="sx-controlls">
-    <?= \yii\helpers\Html::a('<i class="glyphicon glyphicon-circle-arrow-left"></i> ' . \Yii::t('skeeks/cms',
+    <?php echo \yii\helpers\Html::a('<i class="glyphicon glyphicon-circle-arrow-left"></i> ' . \Yii::t('skeeks/cms',
             'Choose file'), $model->src, [
         'class' => 'btn btn-primary btn-xs',
         'onclick' => 'sx.SelectFile.submit("' . $model->src . '"); return false;',

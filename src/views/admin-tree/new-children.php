@@ -10,19 +10,19 @@
  */
 ?>
 
-<?= $this->render('_form', [
+<?php echo $this->render('_form', [
     'model' => $model
 ]); ?>
 
     <hr/>
 <? /*= \yii\helpers\Html::a('Пересчитать приоритеты по алфавиту', '#', ['class' => 'btn btn-xs btn-primary']) ?> |
-<?= \yii\helpers\Html::a('Пересчитать приоритеты по дате добавления', '#', ['class' => 'btn btn-xs btn-primary']) ?> |
-<?= \yii\helpers\Html::a('Пересчитать приоритеты по дате обновления', '#', ['class' => 'btn btn-xs btn-primary']) */ ?>
-<?= $this->render('_recalculate-children-priorities', [
+<?php echo \yii\helpers\Html::a('Пересчитать приоритеты по дате добавления', '#', ['class' => 'btn btn-xs btn-primary']) ?> |
+<?php echo \yii\helpers\Html::a('Пересчитать приоритеты по дате обновления', '#', ['class' => 'btn btn-xs btn-primary']) */ ?>
+<?php echo $this->render('_recalculate-children-priorities', [
     'model' => $model
 ]); ?>
 
-<?= $this->render('list', [
+<?php echo $this->render('list', [
     'searchModel' => $searchModel,
     'dataProvider' => $dataProvider,
     'controller' => $controller,

@@ -15,58 +15,58 @@
     'action' => '/' . \Yii::$app->request->pathInfo,
 ]); ?>
 
-<?= $form->field($searchModel, 'q')->setVisible(); ?>
+<?php echo $form->field($searchModel, 'q')->setVisible(); ?>
 
-<?= $form->field($searchModel, 'id'); ?>
-<?= $form->field($searchModel, 'role')->listBox(\yii\helpers\ArrayHelper::merge([
+<?php echo $form->field($searchModel, 'id'); ?>
+<?php echo $form->field($searchModel, 'role')->listBox(\yii\helpers\ArrayHelper::merge([
     '' => ' - '
 ], \yii\helpers\ArrayHelper::map(\Yii::$app->authManager->getRoles(), 'name', 'description')), [
     'size' => 1
 ]); ?>
 
-<?= $form->field($searchModel, 'active')->listBox(\yii\helpers\ArrayHelper::merge([
+<?php echo $form->field($searchModel, 'active')->listBox(\yii\helpers\ArrayHelper::merge([
     '' => ' - '
 ], \Yii::$app->cms->booleanFormat()), [
     'size' => 1
 ]); ?>
 
-<?= $form->field($searchModel, 'has_image')->checkbox(\Yii::$app->formatter->booleanFormat, false); ?>
+<?php echo $form->field($searchModel, 'has_image')->checkbox(\Yii::$app->formatter->booleanFormat, false); ?>
 
-<?= $form->field($searchModel, 'email_is_approved')->listBox(\yii\helpers\ArrayHelper::merge([
+<?php echo $form->field($searchModel, 'email_is_approved')->listBox(\yii\helpers\ArrayHelper::merge([
     '' => ' - '
 ], \Yii::$app->formatter->booleanFormat), [
     'size' => 1
 ]); ?>
 
-<?= $form->field($searchModel, 'phone_is_approved')->listBox(\yii\helpers\ArrayHelper::merge([
+<?php echo $form->field($searchModel, 'phone_is_approved')->listBox(\yii\helpers\ArrayHelper::merge([
     '' => ' - '
 ], \Yii::$app->formatter->booleanFormat), [
     'size' => 1
 ]); ?>
 
-<?= $form->field($searchModel, 'name') ?>
-<?= $form->field($searchModel, 'username') ?>
-<?= $form->field($searchModel, 'email') ?>
-<?= $form->field($searchModel, 'phone') ?>
+<?php echo $form->field($searchModel, 'name') ?>
+<?php echo $form->field($searchModel, 'username') ?>
+<?php echo $form->field($searchModel, 'email') ?>
+<?php echo $form->field($searchModel, 'phone') ?>
 
-<?= $form->field($searchModel, 'created_at_from')->widget(
+<?php echo $form->field($searchModel, 'created_at_from')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
-<?= $form->field($searchModel, 'created_at_to')->widget(
-    \kartik\datetime\DateTimePicker::className()
-); ?>
-
-<?= $form->field($searchModel, 'updated_at_from')->widget(
-    \kartik\datetime\DateTimePicker::className()
-); ?>
-<?= $form->field($searchModel, 'updated_at_to')->widget(
+<?php echo $form->field($searchModel, 'created_at_to')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
 
-<?= $form->field($searchModel, 'auth_at_from')->widget(
+<?php echo $form->field($searchModel, 'updated_at_from')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
-<?= $form->field($searchModel, 'auth_at_to')->widget(
+<?php echo $form->field($searchModel, 'updated_at_to')->widget(
+    \kartik\datetime\DateTimePicker::className()
+); ?>
+
+<?php echo $form->field($searchModel, 'auth_at_from')->widget(
+    \kartik\datetime\DateTimePicker::className()
+); ?>
+<?php echo $form->field($searchModel, 'auth_at_to')->widget(
     \kartik\datetime\DateTimePicker::className()
 ); ?>
 
@@ -81,6 +81,6 @@ $searchRelatedPropertiesModel->initProperties($searchModel->relatedProperties);
 $searchRelatedPropertiesModel->load(\Yii::$app->request->get());
 $searchRelatedPropertiesModel->search($dataProvider, $searchModel::tableName());
 ?>
-<?= $form->relatedFields($searchRelatedPropertiesModel); ?>
+<?php echo $form->relatedFields($searchRelatedPropertiesModel); ?>
 
 <? $form::end(); ?>

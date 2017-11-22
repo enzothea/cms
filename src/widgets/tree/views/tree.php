@@ -11,9 +11,9 @@ $widget = $this->context;
 ?>
 <div class="row">
     <div class="sx-container-tree col-md-12">
-        <?= \yii\helpers\Html::beginTag("div", $widget->options); ?>
-        <?= $widget->renderNodes($widget->models); ?>
-        <?= \yii\helpers\Html::endTag("div"); ?>
+        <?php echo \yii\helpers\Html::beginTag("div", $widget->options); ?>
+        <?php echo $widget->renderNodes($widget->models); ?>
+        <?php echo \yii\helpers\Html::endTag("div"); ?>
     </div>
 </div>
 

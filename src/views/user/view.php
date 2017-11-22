@@ -27,14 +27,14 @@ $this->title = $model->getDisplayName();
 
     <aside id="sidebar-right" class="col-md-3">
         <div id="column-right" class="hidden-xs sidebar">
-            <h1 class="heading_title"><span><?= $model->getDisplayName(); ?></span></h1>
+            <h1 class="heading_title"><span><?php echo $model->getDisplayName(); ?></span></h1>
         </div>
     </aside>
 
     <section id="sidebar-main" class="col-md-6">
 
         <div id="content">
-            <h1 class="heading_title"><span><?= $model->name; ?></span></h1>
+            <h1 class="heading_title"><span><?php echo $model->name; ?></span></h1>
             <div class="category-info clearfix">
                 <div class="category-description wrapper">
 

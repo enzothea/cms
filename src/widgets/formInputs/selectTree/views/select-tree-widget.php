@@ -9,17 +9,17 @@
 /* @var $widget \skeeks\cms\widgets\formInputs\selectTree\SelectTreeInputWidget */
 $widget = $this->context;
 ?>
-<?= \yii\helpers\Html::beginTag('div', $widget->wrapperOptions); ?>
-<?= $elementForm; ?>
+<?php echo \yii\helpers\Html::beginTag('div', $widget->wrapperOptions); ?>
+<?php echo $elementForm; ?>
 
 <div class="row">
     <div class="col-md-12">
         <ul class="sx-selected">
             <? if ($widget->sections) : ?>
                 <? foreach ($widget->sections as $tree) : ?>
-                    <li data-id="<?= $tree->id; ?>">
-                        <a href="<?= $tree->url; ?>" target="_blank" data-pjax="0">
-                            <?= $widget->getNodeName($tree); ?>
+                    <li data-id="<?php echo $tree->id; ?>">
+                        <a href="<?php echo $tree->url; ?>" target="_blank" data-pjax="0">
+                            <?php echo $widget->getNodeName($tree); ?>
                         </a>
                         <a href="#" class="sx-close-btn pull-right"><i class="glyphicon glyphicon-remove"></i></a>
                     </li>
@@ -65,4 +65,4 @@ JS
         </div>
     </div>
 </div>
-<?= \yii\helpers\Html::endTag('div'); ?>
+<?php echo \yii\helpers\Html::endTag('div'); ?>

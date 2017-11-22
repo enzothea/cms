@@ -3,9 +3,9 @@
 /* @var $model \skeeks\cms\models\CmsContentElement */
 /* @var $relatedModel \skeeks\cms\relatedProperties\models\RelatedPropertiesModel */
 ?>
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
-<?= $form->fieldRadioListBoolean($model, 'active'); ?>
-<?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'active'); ?>
+<?php echo $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
 
 
@@ -19,7 +19,7 @@
     <? if ($rootTreeModels) : ?>
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12">
-                <?= $form->field($model, 'tree_id')->widget(
+                <?php echo $form->field($model, 'tree_id')->widget(
                     \skeeks\cms\widgets\formInputs\selectTree\SelectTreeInputWidget::class,
                     [
                         'options' => [
@@ -63,7 +63,7 @@ $properties = $properties->orderBy(['priority' => SORT_ASC])->all();
  */
 ?>
 <? if ($properties) : ?>
-    <?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
+    <?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
         'content' => \Yii::t('skeeks/cms', 'Additional properties')
     ]); ?>
 
@@ -73,7 +73,7 @@ $properties = $properties->orderBy(['priority' => SORT_ASC])->all();
             <? $pjax = \skeeks\cms\modules\admin\widgets\Pjax::begin(); ?>
             <div class="row">
                 <div class="col-md-8">
-                    <?= $property->renderActiveForm($form, $model) ?>
+                    <?php echo $property->renderActiveForm($form, $model) ?>
                 </div>
                 <div class="col-md-4">
 
@@ -122,7 +122,7 @@ $properties = $properties->orderBy(['priority' => SORT_ASC])->all();
             <? $pjax = \skeeks\cms\modules\admin\widgets\Pjax::begin(); ?>
             <div class="row">
                 <div class="col-md-8">
-                    <?= $property->renderActiveForm($form, $model) ?>
+                    <?php echo $property->renderActiveForm($form, $model) ?>
                 </div>
                 <div class="col-md-4">
                     <? if (!in_array($property->handler->fieldElement, [
@@ -172,11 +172,11 @@ $properties = $properties->orderBy(['priority' => SORT_ASC])->all();
             <? \skeeks\cms\modules\admin\widgets\Pjax::end(); ?>
 
         <? else: ?>
-            <?= $property->renderActiveForm($form, $model) ?>
+            <?php echo $property->renderActiveForm($form, $model) ?>
         <? endif; ?>
     <? endforeach; ?>
 
 <? else : ?>
     <? /*= \Yii::t('skeeks/cms','Additional properties are not set')*/ ?>
 <? endif; ?>
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>

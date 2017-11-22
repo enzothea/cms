@@ -15,12 +15,12 @@ use yii\helpers\Url;
                         setTimeout(function () {
                             _onSearch = false;
                             var data = {
-                                id:<?= json_encode($id) ?>,
+                                id:<?php echo json_encode($id) ?>,
                                 target: $th.data('target'),
                                 term: $th.val(),
                             };
                             var target = '#' + $th.data('target');
-                            $.get('<?= Url::toRoute(['role-search']) ?>', data,
+                            $.get('<?php echo Url::toRoute(['role-search']) ?>', data,
                                 function (html) {
                                     $(target).html(html);
                                 });
@@ -30,8 +30,8 @@ use yii\helpers\Url;
                 action: function () {
                     var action = $(this).data('action');
                     var params = $((action == 'assign' ? '#avaliable' : '#assigned') + ', .role-search').serialize();
-                    var urlAssign = '<?= Url::toRoute(['assign', 'id' => $id, 'action' => 'assign']) ?>';
-                    var urlDelete = '<?= Url::toRoute(['assign', 'id' => $id, 'action' => 'delete']) ?>';
+                    var urlAssign = '<?php echo Url::toRoute(['assign', 'id' => $id, 'action' => 'assign']) ?>';
+                    var urlDelete = '<?php echo Url::toRoute(['assign', 'id' => $id, 'action' => 'delete']) ?>';
                     $.post(action == 'assign' ? urlAssign : urlDelete,
                         params, function (r) {
                             $('#avaliable').html(r[0]);

@@ -13,15 +13,15 @@ use common\models\User;
 <?php $form = ActiveForm::begin(); ?>
 <?php ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'General information')) ?>
-<?= $form->field($model, 'name')->textInput(); ?>
-<?= $form->field($model, 'code')->textInput(); ?>
-<?= $form->fieldInputInt($model, 'priority')->textInput(); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'General information')) ?>
+<?php echo $form->field($model, 'name')->textInput(); ?>
+<?php echo $form->field($model, 'code')->textInput(); ?>
+<?php echo $form->fieldInputInt($model, 'priority')->textInput(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Content')) ?>
-<?= \skeeks\cms\modules\admin\widgets\RelatedModelsGrid::widget([
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Content')) ?>
+<?php echo \skeeks\cms\modules\admin\widgets\RelatedModelsGrid::widget([
     'label' => \Yii::t('skeeks/cms', "Content"),
     'hint' => "",
     'parentModel' => $model,
@@ -45,7 +45,7 @@ use common\models\User;
     ],
 ]); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->buttonsCreateOrUpdate($model); ?>
+<?php echo $form->buttonsCreateOrUpdate($model); ?>
 <?php ActiveForm::end(); ?>

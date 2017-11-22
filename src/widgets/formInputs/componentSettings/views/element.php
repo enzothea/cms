@@ -12,12 +12,12 @@
 $options = $widget->clientOptions;
 $clientOptions = \yii\helpers\Json::encode($options);
 ?>
-<div id="<?= $widget->id; ?>">
+<div id="<?php echo $widget->id; ?>">
     <div class="sx-select-controll">
-        <?= $element; ?>
+        <?php echo $element; ?>
     </div>
-    <a href="#" class="<?= $widget->buttonClasses; ?>">
-        <i class="glyphicon glyphicon-cog"></i> <?= $widget->buttonText; ?>
+    <a href="#" class="<?php echo $widget->buttonClasses; ?>">
+        <i class="glyphicon glyphicon-cog"></i> <?php echo $widget->buttonText; ?>
     </a>
 </div>
 

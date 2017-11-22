@@ -28,7 +28,7 @@ $autoEnvFile .= "<a class='btn btn-xs btn-primary' href='" . \skeeks\cms\helpers
 ?>
 <? $form = ActiveForm::begin(); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Project configuration')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Project configuration')); ?>
 <?php
 echo $this->render('table', [
     'values' => [
@@ -49,19 +49,19 @@ echo $this->render('table', [
     ],
 ]);
 ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'All extensions and modules {yii}', ['yii' => 'Yii'])); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'All extensions and modules {yii}', ['yii' => 'Yii'])); ?>
 <? if (!empty($extensions)) {
     echo $this->render('table', [
         'values' => $extensions,
     ]);
 } ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', '{php} configuration', ['php' => "PHP"])); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', '{php} configuration', ['php' => "PHP"])); ?>
 <?
 echo $this->render('table', [
     'values' => [
@@ -83,14 +83,14 @@ echo $this->render('table', [
     ],
 ]);
 ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 
-<?= $form->fieldSet('PHP info'); ?>
+<?php echo $form->fieldSet('PHP info'); ?>
 <iframe id="php-info"
-        src='<?= \skeeks\cms\helpers\UrlHelper::construct('/cms/admin-info/php')->enableAdmin()->toString(); ?>'
+        src='<?php echo \skeeks\cms\helpers\UrlHelper::construct('/cms/admin-info/php')->enableAdmin()->toString(); ?>'
         width='100%' height='1000'></iframe>;
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 <? ActiveForm::end(); ?>
 

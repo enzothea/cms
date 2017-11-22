@@ -49,16 +49,16 @@ use skeeks\cms\modules\admin\widgets\Pjax;
 JS
 ); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Basic settings')) ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Basic settings')) ?>
 
-<?= $form->fieldRadioListBoolean($model, 'active') ?>
-<?= $form->fieldRadioListBoolean($model, 'is_required') ?>
+<?php echo $form->fieldRadioListBoolean($model, 'active') ?>
+<?php echo $form->fieldRadioListBoolean($model, 'is_required') ?>
 
-<?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
-<?= $form->field($model, 'code')->textInput() ?>
+<?php echo $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+<?php echo $form->field($model, 'code')->textInput() ?>
 
 
-<?= $form->field($model, 'component')->listBox(array_merge(['' => ' — '],
+<?php echo $form->field($model, 'component')->listBox(array_merge(['' => ' — '],
     \Yii::$app->cms->relatedHandlersDataForSelect), [
     'size' => 1,
     'data-form-reload' => 'true'
@@ -67,24 +67,24 @@ JS
 ?>
 
 <? if ($handler) : ?>
-    <?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget(['content' => \Yii::t('skeeks/cms', 'Settings')]); ?>
+    <?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget(['content' => \Yii::t('skeeks/cms', 'Settings')]); ?>
     <? if ($handler instanceof \skeeks\cms\relatedProperties\propertyTypes\PropertyTypeList) : ?>
         <? $handler->enumRoute = 'cms/admin-cms-tree-type-property-enum'; ?>
     <? endif; ?>
-    <?= $handler->renderConfigForm($form); ?>
+    <?php echo $handler->renderConfigForm($form); ?>
 <? endif; ?>
 
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Additionally')) ?>
-<?= $form->field($model, 'hint')->textInput() ?>
-<?= $form->fieldInputInt($model, 'priority') ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Additionally')) ?>
+<?php echo $form->field($model, 'hint')->textInput() ?>
+<?php echo $form->fieldInputInt($model, 'priority') ?>
 
 <? if ($content_id = \Yii::$app->request->get('tree_type_id')) : ?>
 
     <div style="display: none;">
-        <?= $form->field($model, 'cmsTreeTypes')->checkboxList(\yii\helpers\ArrayHelper::map(
+        <?php echo $form->field($model, 'cmsTreeTypes')->checkboxList(\yii\helpers\ArrayHelper::map(
             \skeeks\cms\models\CmsTreeType::find()->all(), 'id', 'name'
         ), ['value' => $content_id]); ?>
     </div>
@@ -93,7 +93,7 @@ JS
 
 <? else: ?>
 
-    <?= $form->field($model, 'cmsTreeTypes')->widget(
+    <?php echo $form->field($model, 'cmsTreeTypes')->widget(
         \skeeks\widget\chosen\Chosen::class,
         [
             'multiple' => true,
@@ -104,9 +104,9 @@ JS
     ); ?>
 
 <? endif; ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->buttonsStandart($model); ?>
+<?php echo $form->buttonsStandart($model); ?>
 
 <?php ActiveForm::end(); ?>
 

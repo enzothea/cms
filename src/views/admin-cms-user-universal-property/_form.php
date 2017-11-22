@@ -53,15 +53,15 @@ if ($model->isNewRecord) {
 JS
 ); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Basic settings')) ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Basic settings')) ?>
 
-<?= $form->fieldRadioListBoolean($model, 'active') ?>
-<?= $form->fieldRadioListBoolean($model, 'is_required') ?>
+<?php echo $form->fieldRadioListBoolean($model, 'active') ?>
+<?php echo $form->fieldRadioListBoolean($model, 'is_required') ?>
 
-<?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
-<?= $form->field($model, 'code')->textInput() ?>
+<?php echo $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+<?php echo $form->field($model, 'code')->textInput() ?>
 
-<?= $form->field($model, 'component')->listBox(array_merge(['' => ' — '],
+<?php echo $form->field($model, 'component')->listBox(array_merge(['' => ' — '],
     \Yii::$app->cms->relatedHandlersDataForSelect), [
     'size' => 1,
     'data-form-reload' => 'true'
@@ -70,24 +70,24 @@ JS
 ?>
 
 <? if ($handler) : ?>
-    <?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget(['content' => \Yii::t('skeeks/cms', 'Settings')]); ?>
+    <?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget(['content' => \Yii::t('skeeks/cms', 'Settings')]); ?>
     <? if ($handler instanceof \skeeks\cms\relatedProperties\propertyTypes\PropertyTypeList) : ?>
         <? $handler->enumRoute = 'cms/admin-cms-user-universal-property-enum'; ?>
     <? endif; ?>
-    <?= $handler->renderConfigForm($form); ?>
+    <?php echo $handler->renderConfigForm($form); ?>
 <? endif; ?>
 
 
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Additionally')) ?>
-<?= $form->field($model, 'hint')->textInput() ?>
-<?= $form->fieldInputInt($model, 'priority') ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Additionally')) ?>
+<?php echo $form->field($model, 'hint')->textInput() ?>
+<?php echo $form->fieldInputInt($model, 'priority') ?>
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->buttonsStandart($model); ?>
+<?php echo $form->buttonsStandart($model); ?>
 
 <?php ActiveForm::end(); ?>
 

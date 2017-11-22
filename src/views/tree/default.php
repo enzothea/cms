@@ -14,4 +14,4 @@
  */
 ?>
 
-<h1><?= $model->name; ?></h1>
+<h1><?php echo $model->name; ?></h1>

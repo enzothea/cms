@@ -14,46 +14,46 @@ use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
 
 ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
 
-<?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
     'content' => \Yii::t('skeeks/cms', 'Main')
 ]) ?>
-<?= $form->field($model, 'appName')->textInput()->hint(''); ?>
+<?php echo $form->field($model, 'appName')->textInput()->hint(''); ?>
 
-<?= $form->field($model,
+<?php echo $form->field($model,
     'adminEmail')->textInput()->hint('E-Mail администратора сайта. Этот email будет отображаться как отправитель, в отправленных письмах с сайта.'); ?>
 
-<?= $form->field($model, 'noImageUrl')->widget(
+<?php echo $form->field($model, 'noImageUrl')->widget(
     \skeeks\cms\modules\admin\widgets\formInputs\OneImage::className()
 )->hint('Это изображение показывается в тех случаях, когда не найдено основное.'); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Языковые настройки'); ?>
-<?= $form->fieldSelect($model, 'languageCode', \yii\helpers\ArrayHelper::map(
+<?php echo $form->fieldSet('Языковые настройки'); ?>
+<?php echo $form->fieldSelect($model, 'languageCode', \yii\helpers\ArrayHelper::map(
     \skeeks\cms\models\CmsLang::find()->active()->all(),
     'code',
     'name'
 )); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Авторизация'); ?>
-<?= $form->fieldSelectMulti($model, 'registerRoles',
+<?php echo $form->fieldSet('Авторизация'); ?>
+<?php echo $form->fieldSelectMulti($model, 'registerRoles',
     \yii\helpers\ArrayHelper::map(\Yii::$app->authManager->getRoles(), 'name', 'description')
 )->hint('Так же после созданию пользователя, ему будут назначены, выбранные группы.'); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Разделы'); ?>
-<?= $form->field($model, 'tree_max_code_length'); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet('Разделы'); ?>
+<?php echo $form->field($model, 'tree_max_code_length'); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Элементы'); ?>
-<?= $form->field($model, 'element_max_code_length'); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet('Элементы'); ?>
+<?php echo $form->field($model, 'element_max_code_length'); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Доступ'); ?>
+<?php echo $form->fieldSet('Доступ'); ?>
 
 <? \yii\bootstrap\Alert::begin([
     'options' => [
@@ -63,28 +63,28 @@ use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
 <b>Внимание!</b> Права доступа сохраняются в режиме реального времени. Так же эти настройки не зависят от сайта или пользователя.
 <? \yii\bootstrap\Alert::end() ?>
 
-<?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
     'content' => "Файлы"
 ]) ?>
 
-<?= \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
+<?php echo \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
     'permissionName' => \skeeks\cms\rbac\CmsManager::PERMISSION_ELFINDER_USER_FILES,
     'label' => 'Доступ к личным файлам',
 ]); ?>
 
-<?= \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
+<?php echo \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
     'permissionName' => \skeeks\cms\rbac\CmsManager::PERMISSION_ELFINDER_COMMON_PUBLIC_FILES,
     'label' => 'Доступ к общим файлам',
 ]); ?>
 
 
-<?= \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
+<?php echo \skeeks\cms\rbac\widgets\adminPermissionForRoles\AdminPermissionForRolesWidget::widget([
     'permissionName' => \skeeks\cms\rbac\CmsManager::PERMISSION_ELFINDER_ADDITIONAL_FILES,
     'label' => 'Доступ ко всем файлам',
 ]); ?>
 
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 
 

@@ -16,7 +16,7 @@
     'id' => 'widget-select-component'
 ]) */ ?>
 <form id="selector-component" action="" method="get" data-pjax>
-    <label><?= \Yii::t('skeeks/cms', 'Component settings') ?></label>
+    <label><?php echo \Yii::t('skeeks/cms', 'Component settings') ?></label>
     <?=
     \skeeks\widget\chosen\Chosen::widget([
         'name' => 'component',
@@ -27,12 +27,12 @@
     ?>
     <? if (\Yii::$app->admin->isEmptyLayout()) : ?>
         <input type="hidden"
-               name="<?= \skeeks\cms\backend\helpers\BackendUrlHelper::BACKEND_PARAM_NAME; ?>[<?= \skeeks\cms\backend\helpers\BackendUrlHelper::BACKEND_PARAM_NAME_EMPTY_LAYOUT; ?>]"
+               name="<?php echo \skeeks\cms\backend\helpers\BackendUrlHelper::BACKEND_PARAM_NAME; ?>[<?php echo \skeeks\cms\backend\helpers\BackendUrlHelper::BACKEND_PARAM_NAME_EMPTY_LAYOUT; ?>]"
                value="true"/>
     <? endif; ?>
 </form>
 <hr/>
-<iframe data-src="<?= $component->getEditUrl(); ?>" width="100%;" height="200px;" id="sx-test">
+<iframe data-src="<?php echo $component->getEditUrl(); ?>" width="100%;" height="200px;" id="sx-test">
 
 </iframe>
 

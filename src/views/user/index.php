@@ -14,9 +14,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <section id="contentBox">
     <div id="main" class="eh">
         <div class="game-index sx-list">
-            <h1><?= Html::encode($this->title) ?></h1>
+            <h1><?php echo Html::encode($this->title) ?></h1>
             <?php /*echo $this->render('_search', ['model' => $searchModel]); */ ?>
-            <?= \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
+            <?php echo \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
                 'showHeader' => false,
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,

@@ -21,12 +21,12 @@ $this->title = \Yii::t('skeeks/cms', 'Getting a new password');
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
-                    <h1><?= $message; ?></h1>
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Request recovery again'),
+                    <h1><?php echo $message; ?></h1>
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Request recovery again'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/forget')->toString()) ?> |
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Authorization'),
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Authorization'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/login')->toString()) ?> |
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Registration'),
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Registration'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/register')->toString()) ?>
                 </div>
                 <div class="col-lg-3"></div>

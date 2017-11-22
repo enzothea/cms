@@ -15,21 +15,21 @@ $action = $controller->action;
 <?php $form = $action->beginActiveForm(); ?>
 <?php echo $form->errorSummary($model); ?>
 
-<?= $form->field($model, 'image_id')->widget(
+<?php echo $form->field($model, 'image_id')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'accept' => 'image/*',
         'multiple' => false
     ]
 ); ?>
-<?= $form->field($model, 'code')->textInput(); ?>
-<?= $form->fieldRadioListBoolean($model, 'active')->hint(\Yii::t('skeeks/cms',
+<?php echo $form->field($model, 'code')->textInput(); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'active')->hint(\Yii::t('skeeks/cms',
     'On the site must be included at least one language')); ?>
-<?= $form->field($model, 'name')->textarea(); ?>
-<?= $form->field($model, 'description')->textarea(); ?>
-<?= $form->fieldInputInt($model, 'priority'); ?>
+<?php echo $form->field($model, 'name')->textarea(); ?>
+<?php echo $form->field($model, 'description')->textarea(); ?>
+<?php echo $form->fieldInputInt($model, 'priority'); ?>
 
-<?= $form->buttonsStandart($model) ?>
+<?php echo $form->buttonsStandart($model) ?>
 
 <?php echo $form->errorSummary($model); ?>
 <?php $action->endActiveForm(); ?>

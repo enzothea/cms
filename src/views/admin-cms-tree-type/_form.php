@@ -12,37 +12,37 @@ use common\models\User;
 
 <?php $form = ActiveForm::begin(); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
 
 
-<?= $form->field($model, 'name')->textInput(); ?>
-<?= $form->field($model, 'code')
+<?php echo $form->field($model, 'name')->textInput(); ?>
+<?php echo $form->field($model, 'code')
     ->hint(\Yii::t('skeeks/cms',
         'The name of the template to draw the elements of this type will be the same as the name of the code.')); ?>
 
-<?= $form->field($model, 'view_file')->textInput()
+<?php echo $form->field($model, 'view_file')->textInput()
     ->hint(\Yii::t('skeeks/cms', 'The path to the template. If not specified, the pattern will be the same code.')); ?>
 
-<?= $form->fieldRadioListBoolean($model, 'active'); ?>
-<?= $form->fieldInputInt($model, 'priority'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'active'); ?>
+<?php echo $form->fieldInputInt($model, 'priority'); ?>
 
-<?= $form->fieldRadioListBoolean($model, 'index_for_search'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'index_for_search'); ?>
 
-<?= $form->fieldSelect($model, 'default_children_tree_type',
+<?php echo $form->fieldSelect($model, 'default_children_tree_type',
     \yii\helpers\ArrayHelper::map(\skeeks\cms\models\CmsTreeType::find()->all(), 'id', 'name'), [
         'allowDeselect' => true
     ])->hint(\Yii::t('skeeks/cms',
     'If this parameter is not specified, the child partition is created of the same type as the current one.')); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Captions')); ?>
-<?= $form->field($model, 'name_one')->textInput(); ?>
-<?= $form->field($model, 'name_meny')->textInput(); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Captions')); ?>
+<?php echo $form->field($model, 'name_one')->textInput(); ?>
+<?php echo $form->field($model, 'name_meny')->textInput(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 <? if (!$model->isNewRecord) : ?>
-    <?= $form->fieldSet(\Yii::t('skeeks/cms', 'Properties')) ?>
+    <?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Properties')) ?>
 
     <? $pjax = \yii\widgets\Pjax::begin(); ?>
     <?
@@ -50,7 +50,7 @@ use common\models\User;
     $query->joinWith('cmsTreeTypeProperty2types map');
     $query->andWhere(['map.cms_tree_type_id' => $model->id]);
     ?>
-    <?= \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
+    <?php echo \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
         'dataProvider' => new \yii\data\ActiveDataProvider([
             'query' => $query
         ]),
@@ -90,7 +90,7 @@ use common\models\User;
 
 
 
-    <?= $form->fieldSetEnd(); ?>
+    <?php echo $form->fieldSetEnd(); ?>
 <? endif; ?>
-<?= $form->buttonsCreateOrUpdate($model); ?>
+<?php echo $form->buttonsCreateOrUpdate($model); ?>
 <?php ActiveForm::end(); ?>

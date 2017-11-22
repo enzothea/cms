@@ -10,12 +10,12 @@
 /* @var $model \skeeks\cms\shop\cmsWidgets\filters\ShopProductFiltersWidget */
 
 ?>
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Showing')); ?>
-<?= $form->field($model, 'viewFile')->textInput(); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Showing')); ?>
+<?php echo $form->field($model, 'viewFile')->textInput(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Data source')); ?>
-<?= $form->fieldSelect($model, 'content_id', \skeeks\cms\models\CmsContent::getDataForSelect()); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Data source')); ?>
+<?php echo $form->fieldSelect($model, 'content_id', \skeeks\cms\models\CmsContent::getDataForSelect()); ?>
 
 <? /*= $form->fieldSelectMulti($model, 'searchModelAttributes', [
         'image' => \Yii::t('skeeks/cms', 'Filter by photo'),
@@ -31,7 +31,7 @@
 ]); */ ?>
 
 <? if ($model->cmsContent) : ?>
-    <?= $form->fieldSelectMulti($model, 'realatedProperties',
+    <?php echo $form->fieldSelectMulti($model, 'realatedProperties',
         \yii\helpers\ArrayHelper::map($model->cmsContent->cmsContentProperties, 'code', 'name')); ?>
 <? else: ?>
     Дополнительные свойства появятся после сохранения настроек
@@ -39,5 +39,5 @@
 
 
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 

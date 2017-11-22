@@ -53,7 +53,7 @@ $this->registerJs(<<<JS
 JS
 );
 ?>
-<div id="<?= $action->id; ?>">
+<div id="<?php echo $action->id; ?>">
     <? if ($action->controller && $action->controller->content) : ?>
 
         <? $content = $action->controller->content; ?>
@@ -67,7 +67,7 @@ JS
                     'class' => 'sx-form',
                 ]
             ]); ?>
-            <?= \skeeks\widget\chosen\Chosen::widget([
+            <?php echo \skeeks\widget\chosen\Chosen::widget([
                 'multiple' => true,
                 'name' => 'fields',
                 'options' => [
@@ -76,10 +76,10 @@ JS
                 'items' => $element->relatedPropertiesModel->attributeLabels()
             ]); ?>
 
-            <?= \yii\helpers\Html::hiddenInput('content_id', $content->id); ?>
+            <?php echo \yii\helpers\Html::hiddenInput('content_id', $content->id); ?>
 
             <? foreach ($element->relatedPropertiesModel->properties as $property) : ?>
-                <div class="sx-multi sx-multi-<?= $property->code; ?>" style="display: none;">
+                <div class="sx-multi sx-multi-<?php echo $property->code; ?>" style="display: none;">
                     <? if ($property->property_type == \skeeks\cms\relatedProperties\PropertyType::CODE_ELEMENT) : ?>
 
                         <? if ($property->handler->fieldElement == \skeeks\cms\relatedProperties\propertyTypes\PropertyTypeElement::FIELD_ELEMENT_SELECT) : ?>
@@ -103,11 +103,11 @@ JS
                             ?>
                         <? endif; ?>
                     <? else : ?>
-                        <?= $property->renderActiveForm($form); ?>
+                        <?php echo $property->renderActiveForm($form); ?>
                     <? endif; ?>
                 </div>
             <? endforeach; ?>
-            <?= $form->buttonsStandart($model, ['save']); ?>
+            <?php echo $form->buttonsStandart($model, ['save']); ?>
             <? $form::end(); ?>
         <? else : ?>
             Not found properties

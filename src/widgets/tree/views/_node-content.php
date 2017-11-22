@@ -10,9 +10,9 @@
 /* @var $model \skeeks\cms\models\CmsTree */
 $widget = $this->context;
 ?>
-<div class="sx-label-node level-<?= $model->level; ?> status-<?= $model->active; ?>">
-    <a href="<?= $widget->getOpenCloseLink($model); ?>">
-        <?= $model->name; ?>
+<div class="sx-label-node level-<?php echo $model->level; ?> status-<?php echo $model->active; ?>">
+    <a href="<?php echo $widget->getOpenCloseLink($model); ?>">
+        <?php echo $model->name; ?>
     </a>
 </div>
 

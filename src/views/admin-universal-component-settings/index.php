@@ -16,7 +16,7 @@ $clientOptions = \yii\helpers\Json::encode($clientOptions);
 
 ?>
 <? if ($forSave) : ?>
-    <?= $forSave; ?>
+    <?php echo $forSave; ?>
 <? endif; ?>
 
 <? if ($component instanceof \skeeks\cms\base\ConfigFormInterface) : ?>
@@ -24,12 +24,12 @@ $clientOptions = \yii\helpers\Json::encode($clientOptions);
 
     <? $form = \skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab::begin(); ?>
     <? $component->renderConfigForm($form); ?>
-    <?= $form->buttonsStandart($component); ?>
+    <?php echo $form->buttonsStandart($component); ?>
     <? \skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab::end(); ?>
 
 <? else: ?>
     <? if ($component->existsConfigFormFile()) : ?>
-        <?= $component->renderConfigForm(); ?>
+        <?php echo $component->renderConfigForm(); ?>
     <? else: ?>
         <p>Настройки отсутствуют</p>
     <? endif; ?>

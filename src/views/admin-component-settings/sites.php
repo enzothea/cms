@@ -10,29 +10,29 @@
 /* @var $this yii\web\View */
 ?>
 
-<?= $this->render('_header', [
+<?php echo $this->render('_header', [
     'component' => $component
 ]); ?>
 
 
 <div class="sx-box sx-mb-10 sx-p-10">
-    <p><?= \Yii::t('skeeks/cms',
+    <p><?php echo \Yii::t('skeeks/cms',
             'This component may have personal preferences. And it works differently depending on which of the sites is displayed.') ?></p>
-    <p><?= \Yii::t('skeeks/cms',
+    <p><?php echo \Yii::t('skeeks/cms',
             'In that case, if the site not has personal settings will be used the default settings.') ?></p>
     <? if ($settings = \skeeks\cms\models\CmsComponentSettings::findByComponent($component)->andWhere([
         '>',
         'cms_site_id',
         0
     ])->count()) : ?>
-        <p><b><?= \Yii::t('skeeks/cms', 'Number of customized sites') ?>:</b> <?= $settings; ?></p>
+        <p><b><?php echo \Yii::t('skeeks/cms', 'Number of customized sites') ?>:</b> <?php echo $settings; ?></p>
         <button type="submit" class="btn btn-danger btn-xs"
                 onclick="sx.ComponentSettings.Remove.removeSites(); return false;">
-            <i class="glyphicon glyphicon-remove"></i> <?= \Yii::t('skeeks/cms', 'reset settings for all sites"') ?>
+            <i class="glyphicon glyphicon-remove"></i> <?php echo \Yii::t('skeeks/cms', 'reset settings for all sites"') ?>
         </button>
         <small>.</small>
     <? else: ?>
-        <small><?= \Yii::t('skeeks/cms', 'Neither site does not have personal settings for this component') ?></small>
+        <small><?php echo \Yii::t('skeeks/cms', 'Neither site does not have personal settings for this component') ?></small>
     <? endif; ?>
 </div>
 
@@ -42,7 +42,7 @@ $search->search(\Yii::$app->request->get());
 $search->getDataProvider()->query->andWhere(['active' => \skeeks\cms\components\Cms::BOOL_Y]);
 
 ?>
-<?= \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
     'dataProvider' => $search->getDataProvider(),
     'filterModel' => $search->getLoadedModel(),
     'columns' => [
@@ -73,4 +73,4 @@ $search->getDataProvider()->query->andWhere(['active' => \skeeks\cms\components\
 ]) ?>
 
 
-<?= $this->render('_footer'); ?>
+<?php echo $this->render('_footer'); ?>

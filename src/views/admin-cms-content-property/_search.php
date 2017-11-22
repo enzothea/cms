@@ -33,11 +33,11 @@ if ($filter->tree_ids) {
     'action' => '/' . \Yii::$app->request->pathInfo,
 ]); ?>
 
-<?= $form->field($searchModel, 'name')->setVisible(true)->textInput([
+<?php echo $form->field($searchModel, 'name')->setVisible(true)->textInput([
     'placeholder' => \Yii::t('skeeks/cms', 'Search by name')
 ]); ?>
 
-<?= $form->field($searchModel, 'component')->setVisible(true)
+<?php echo $form->field($searchModel, 'component')->setVisible(true)
     ->widget(
         \skeeks\widget\chosen\Chosen::class, [
             'items' => \Yii::$app->cms->relatedHandlersDataForSelect
@@ -45,7 +45,7 @@ if ($filter->tree_ids) {
     );
 ?>
 
-<?= $form->field($filter, 'content_ids')->label(\Yii::t('skeeks/cms', 'Content'))->setVisible(true)->widget(
+<?php echo $form->field($filter, 'content_ids')->label(\Yii::t('skeeks/cms', 'Content'))->setVisible(true)->widget(
     \skeeks\widget\chosen\Chosen::class,
     [
         'multiple' => true,
@@ -53,7 +53,7 @@ if ($filter->tree_ids) {
     ]
 ); ?>
 
-<?= $form->field($filter, 'tree_ids')->label(\Yii::t('skeeks/cms', 'Sections'))->setVisible(true)
+<?php echo $form->field($filter, 'tree_ids')->label(\Yii::t('skeeks/cms', 'Sections'))->setVisible(true)
     ->widget(
         \skeeks\cms\backend\widgets\SelectModelDialogTreeWidget::class
     )/*->widget(
@@ -65,11 +65,11 @@ if ($filter->tree_ids) {
     )*/
 ; ?>
 
-<?= $form->field($searchModel, 'id') ?>
+<?php echo $form->field($searchModel, 'id') ?>
 
-<?= $form->field($searchModel, 'code'); ?>
+<?php echo $form->field($searchModel, 'code'); ?>
 
-<?= $form->field($searchModel, 'active')->listBox(\yii\helpers\ArrayHelper::merge([
+<?php echo $form->field($searchModel, 'active')->listBox(\yii\helpers\ArrayHelper::merge([
     '' => ' - '
 ], \Yii::$app->cms->booleanFormat()), [
     'size' => 1

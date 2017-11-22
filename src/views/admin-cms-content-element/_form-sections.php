@@ -3,7 +3,7 @@
 /* @var $model \skeeks\cms\models\CmsContentElement */
 /* @var $relatedModel \skeeks\cms\relatedProperties\models\RelatedPropertiesModel */
 ?>
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Sections')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Sections')); ?>
 <? if ($contentModel->root_tree_id) : ?>
     <? $rootTreeModels = \skeeks\cms\models\CmsTree::findAll($contentModel->root_tree_id); ?>
 <? else : ?>
@@ -35,7 +35,7 @@
 <? if ($rootTreeModels) : ?>
     <div class="row">
         <div class="col-lg-8 col-md-12 col-sm-12">
-            <?= $form->field($model, 'treeIds')->widget(
+            <?php echo $form->field($model, 'treeIds')->widget(
                 \skeeks\cms\widgets\formInputs\selectTree\SelectTreeInputWidget::class,
                 [
                     'options' => [
@@ -52,4 +52,4 @@
     </div>
 <? endif; ?>
 
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>

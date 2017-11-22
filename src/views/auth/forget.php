@@ -27,17 +27,17 @@ $this->title = \Yii::t('skeeks/cms', 'Request for password recovery');
                     <?php $form = ActiveForm::begin([
                         'validationUrl' => UrlHelper::construct('cms/auth/forget')->setSystemParam(\skeeks\cms\helpers\RequestResponse::VALIDATION_AJAX_FORM_SYSTEM_NAME)->toString()
                     ]); ?>
-                    <?= $form->field($model, 'identifier') ?>
+                    <?php echo $form->field($model, 'identifier') ?>
 
                     <div class="form-group">
-                        <?= Html::submitButton(\Yii::t('skeeks/cms', "Send"),
+                        <?php echo Html::submitButton(\Yii::t('skeeks/cms', "Send"),
                             ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                     </div>
 
                     <?php ActiveForm::end(); ?>
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Authorization'),
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Authorization'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/login')->toString()) ?> |
-                    <?= Html::a(\Yii::t('skeeks/cms', 'Registration'),
+                    <?php echo Html::a(\Yii::t('skeeks/cms', 'Registration'),
                         UrlHelper::constructCurrent()->setRoute('cms/auth/register')->toString()) ?>
                 </div>
 

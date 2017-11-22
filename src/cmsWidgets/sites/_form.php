@@ -7,29 +7,29 @@
  */
 /* @var $this yii\web\View */
 ?>
-<?= $form->fieldSet('Отображение'); ?>
-<?= $form->field($model, 'viewFile')->textInput(); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet('Отображение'); ?>
+<?php echo $form->field($model, 'viewFile')->textInput(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Фильтрация'); ?>
-<?= $form->fieldSelect($model, 'active', \Yii::$app->cms->booleanFormat()); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet('Фильтрация'); ?>
+<?php echo $form->fieldSelect($model, 'active', \Yii::$app->cms->booleanFormat()); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Сортировка'); ?>
-<?= $form->fieldSelect($model, 'orderBy', (new \skeeks\cms\models\CmsSite())->attributeLabels()); ?>
-<?= $form->fieldSelect($model, 'order', [
+<?php echo $form->fieldSet('Сортировка'); ?>
+<?php echo $form->fieldSelect($model, 'orderBy', (new \skeeks\cms\models\CmsSite())->attributeLabels()); ?>
+<?php echo $form->fieldSelect($model, 'order', [
     SORT_ASC => "ASC (от меньшего к большему)",
     SORT_DESC => "DESC (от большего к меньшему)",
 ]); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Дополнительно'); ?>
-<?= $form->field($model, 'label')->textInput(); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet('Дополнительно'); ?>
+<?php echo $form->field($model, 'label')->textInput(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
-<?= $form->fieldSet('Настройки кэширования'); ?>
-<?= $form->fieldRadioListBoolean($model, 'enabledRunCache', \Yii::$app->cms->booleanFormat()); ?>
-<?= $form->fieldInputInt($model, 'runCacheDuration'); ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSet('Настройки кэширования'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'enabledRunCache', \Yii::$app->cms->booleanFormat()); ?>
+<?php echo $form->fieldInputInt($model, 'runCacheDuration'); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 

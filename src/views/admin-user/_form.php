@@ -23,17 +23,17 @@ $action = $controller->action;
 <?php echo $form->errorSummary([$model, $relatedModel]); ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'General information')) ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'General information')) ?>
 
 
-<?= $form->fieldRadioListBoolean($model, 'active'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'active'); ?>
 
-<?= $form->field($model, 'gender')->radioList([
+<?php echo $form->field($model, 'gender')->radioList([
     'men' => \Yii::t('skeeks/cms', 'Male'),
     'women' => \Yii::t('skeeks/cms', 'Female'),
 ]); ?>
 
-<?= $form->field($model, 'image_id')->widget(
+<?php echo $form->field($model, 'image_id')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'accept' => 'image/*',
@@ -41,18 +41,18 @@ $action = $controller->action;
     ]
 ); ?>
 
-<?= $form->field($model, 'username')->textInput(['maxlength' => 25])->hint(\Yii::t('skeeks/cms',
+<?php echo $form->field($model, 'username')->textInput(['maxlength' => 25])->hint(\Yii::t('skeeks/cms',
     'The unique username. Used for authorization and to form links to personal cabinet.')); ?>
 
-<?= $form->field($model, 'first_name')->textInput(); ?>
-<?= $form->field($model, 'last_name')->textInput(); ?>
-<?= $form->field($model, 'patronymic')->textInput(); ?>
+<?php echo $form->field($model, 'first_name')->textInput(); ?>
+<?php echo $form->field($model, 'last_name')->textInput(); ?>
+<?php echo $form->field($model, 'patronymic')->textInput(); ?>
 
 <div class="row">
     <div class="col-md-5">
-        <?= $form->field($model, 'email')->textInput(); ?>
+        <?php echo $form->field($model, 'email')->textInput(); ?>
         <? if (\Yii::$app->user->can(\skeeks\cms\rbac\CmsManager::PERMISSION_USER_FULL_EDIT)) : ?>
-            <?= $form->field($model, 'email_is_approved')->checkbox(\Yii::$app->formatter->booleanFormat); ?>
+            <?php echo $form->field($model, 'email_is_approved')->checkbox(\Yii::$app->formatter->booleanFormat); ?>
         <? endif; ?>
     </div>
     <div class="col-md-5">
@@ -65,23 +65,23 @@ JS
         );
         ?>
 
-        <?= $form->field($model, 'phone')->textInput([
+        <?php echo $form->field($model, 'phone')->textInput([
             'placeholder' => '+7 903 722-28-73'
         ]); ?>
         <? if (\Yii::$app->user->can(\skeeks\cms\rbac\CmsManager::PERMISSION_USER_FULL_EDIT)) : ?>
-            <?= $form->field($model, 'phone_is_approved')->checkbox(\Yii::$app->formatter->booleanFormat); ?>
+            <?php echo $form->field($model, 'phone_is_approved')->checkbox(\Yii::$app->formatter->booleanFormat); ?>
         <? endif; ?>
     </div>
 </div>
 
 
 <? if ($model->relatedProperties) : ?>
-    <?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
+    <?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
         'content' => \Yii::t('skeeks/cms', 'Additional properties')
     ]); ?>
     <? if ($properties = $model->relatedProperties) : ?>
         <? foreach ($properties as $property) : ?>
-            <?= $property->renderActiveForm($form, $model) ?>
+            <?php echo $property->renderActiveForm($form, $model) ?>
         <? endforeach; ?>
     <? endif; ?>
 
@@ -90,10 +90,10 @@ JS
 <? endif; ?>
 
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 <? if (\Yii::$app->user->can(\skeeks\cms\rbac\CmsManager::PERMISSION_USER_FULL_EDIT)) : ?>
-    <?= $form->fieldSet(\Yii::t('skeeks/cms', 'Groups')) ?>
+    <?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Groups')) ?>
 
     <? $this->registerCss(<<<CSS
     .sx-checkbox label
@@ -102,21 +102,21 @@ JS
     }
 CSS
     ) ?>
-    <?= $form->field($model, 'roleNames')->checkboxList(
+    <?php echo $form->field($model, 'roleNames')->checkboxList(
         \yii\helpers\ArrayHelper::map(\Yii::$app->authManager->getRoles(), 'name', 'description'), [
             'class' => 'sx-checkbox'
         ]
     ); ?>
 
-    <?= $form->fieldSetEnd(); ?>
+    <?php echo $form->fieldSetEnd(); ?>
 <? endif; ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Password')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Password')); ?>
 
-<?= $form->field($passwordChange, 'new_password')->passwordInput() ?>
-<?= $form->field($passwordChange, 'new_password_confirm')->passwordInput() ?>
+<?php echo $form->field($passwordChange, 'new_password')->passwordInput() ?>
+<?php echo $form->field($passwordChange, 'new_password_confirm')->passwordInput() ?>
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 <? /*= $form->fieldSet(\Yii::t('skeeks/cms','Additionally'))*/ ?><!--
     <? /*= $form->field($model, 'city')->textInput(); */ ?>
@@ -126,8 +126,8 @@ CSS
 --><? /*= $form->fieldSetEnd(); */ ?>
 
 <? if (!$model->isNewRecord && class_exists('\skeeks\cms\authclient\models\UserAuthClient')) : ?>
-    <?= $form->fieldSet(\Yii::t('skeeks/authclient', 'Social profiles')) ?>
-    <?= \skeeks\cms\modules\admin\widgets\RelatedModelsGrid::widget([
+    <?php echo $form->fieldSet(\Yii::t('skeeks/authclient', 'Social profiles')) ?>
+    <?php echo \skeeks\cms\modules\admin\widgets\RelatedModelsGrid::widget([
         'label' => \Yii::t('skeeks/authclient', "Social profiles"),
         'hint' => "",
         'parentModel' => $model,
@@ -141,9 +141,9 @@ CSS
             ],
         ],
     ]); ?>
-    <?= $form->fieldSetEnd(); ?>
+    <?php echo $form->fieldSetEnd(); ?>
 <? endif; ?>
 
-<?= $form->buttonsStandart($model); ?>
+<?php echo $form->buttonsStandart($model); ?>
 <?php echo $form->errorSummary([$model, $relatedModel]); ?>
 <?php \skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab::end(); ?>

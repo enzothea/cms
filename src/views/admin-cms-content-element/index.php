@@ -30,7 +30,7 @@ if ($content_id = \Yii::$app->request->get('content_id')) {
     'cmsContent' => $cmsContent,
 ]); ?>
 
-<?= \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'autoColumns' => false,
@@ -56,7 +56,7 @@ if ($content_id = \Yii::$app->request->get('content_id')) {
         'class' => 'alert-info',
     ],
 ]); ?>
-Изменить свойства и права доступа к информационному блоку вы можете в <?= \yii\helpers\Html::a('Настройках контента',
+Изменить свойства и права доступа к информационному блоку вы можете в <?php echo \yii\helpers\Html::a('Настройках контента',
     \skeeks\cms\helpers\UrlHelper::construct([
         '/cms/admin-cms-content/update',
         'pk' => $content_id

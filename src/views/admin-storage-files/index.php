@@ -19,7 +19,7 @@
 <? $pjax = \skeeks\cms\modules\admin\widgets\Pjax::begin(); ?>
 
 <? $pjaxId = $pjax->id; ?>
-<?= \skeeks\cms\widgets\StorageFileManager::widget([
+<?php echo \skeeks\cms\widgets\StorageFileManager::widget([
     'clientOptions' =>
         [
             'completeUploadFile' => new \yii\web\JsExpression(<<<JS
@@ -38,7 +38,7 @@ JS
     'dataProvider' => $dataProvider
 ]); ?>
 
-<?= \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
 
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,

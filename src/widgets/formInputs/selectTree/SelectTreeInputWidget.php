@@ -28,7 +28,7 @@ use Yii;
 /**
  *
  *
- *  <?= $form->field($model, 'treeIds')->widget(
+ *  <?php echo $form->field($model, 'treeIds')->widget(
  * \skeeks\cms\widgets\formInputs\selectTree\SelectTreeInputWidget::class,
  * [
  * 'multiple' => true

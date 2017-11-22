@@ -29,17 +29,17 @@ if ($additionalName) {
 
 ?>
 
-<div class="sx-label-node level-<?= $model->level; ?> status-<?= $model->active; ?>">
+<div class="sx-label-node level-<?php echo $model->level; ?> status-<?php echo $model->active; ?>">
 
 
-    <a href="<?= $widget->getOpenCloseLink($model); ?>">
-        <?= $result; ?>
+    <a href="<?php echo $widget->getOpenCloseLink($model); ?>">
+        <?php echo $result; ?>
     </a>
     <? if ($model->redirect || $model->redirect_tree_id) : ?>
         →
     <? endif; ?>
     <? if ($model->redirect) : ?>
-        <?= $model->redirect; ?>
+        <?php echo $model->redirect; ?>
     <? endif; ?>
     <? if ($model->redirectTree) : ?>
         <? if ($parents = $model->redirectTree->parents) : ?>
@@ -77,7 +77,7 @@ if ($additionalName) {
 
 
 
-    <?= \skeeks\cms\backend\widgets\DropdownControllerActionsWidget::widget([
+    <?php echo \skeeks\cms\backend\widgets\DropdownControllerActionsWidget::widget([
         "actions" => $controller->modelActions,
         "renderFirstAction" => true,
         "wrapperOptions" => ['class' => "dropdown pull-left"],
@@ -88,20 +88,20 @@ if ($additionalName) {
     ]); ?>
     <div class="pull-left sx-controll-act">
         <a href="#" class="btn-tree-node-controll btn btn-default btn-sm add-tree-child"
-           title="<?= \Yii::t('skeeks/cms', 'Create subsection'); ?>" data-id="<?= $model->id; ?>"><span
+           title="<?php echo \Yii::t('skeeks/cms', 'Create subsection'); ?>" data-id="<?php echo $model->id; ?>"><span
                     class="glyphicon glyphicon-plus"></span></a>
     </div>
     <div class="pull-left sx-controll-act">
-        <a href="<?= $model->absoluteUrl; ?>" target="_blank"
+        <a href="<?php echo $model->absoluteUrl; ?>" target="_blank"
            class="btn-tree-node-controll btn btn-default btn-sm show-at-site"
-           title="<?= \Yii::t('skeeks/cms', "Show at site"); ?>">
+           title="<?php echo \Yii::t('skeeks/cms', "Show at site"); ?>">
             <span class="glyphicon glyphicon-eye-open"></span>
         </a>
     </div>
     <? if ($model->level > 0) : ?>
         <div class="pull-left sx-controll-act">
             <a href="#" class="btn-tree-node-controll btn btn-default btn-sm sx-tree-move"
-               title="<?= \Yii::t('skeeks/cms', "Change sorting"); ?>">
+               title="<?php echo \Yii::t('skeeks/cms', "Change sorting"); ?>">
                 <span class="glyphicon glyphicon-move"></span>
             </a>
         </div>
@@ -173,7 +173,7 @@ JS
 
 <? if ($model->treeType) : ?>
     <div class="pull-right sx-tree-type">
-        <?= $model->treeType->name; ?>
+        <?php echo $model->treeType->name; ?>
     </div>
 <? endif; ?>
 

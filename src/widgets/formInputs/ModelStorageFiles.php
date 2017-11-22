@@ -20,7 +20,7 @@ use yii\widgets\InputWidget;
  *
  *
  *
- * <?= $form->field($model, 'images')->widget(
+ * <?php echo $form->field($model, 'images')->widget(
  * \skeeks\cms\widgets\formInputs\ModelStorageFiles::className(),
  * [
  * 'backendUrl' => \yii\helpers\Url::to(['/cms/storage-files/link-to-models']),

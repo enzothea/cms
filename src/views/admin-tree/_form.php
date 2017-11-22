@@ -21,19 +21,19 @@ $action = $controller->action;
                 <div class="pull-left">
                     <? if ($model->parents) : ?>
                         <? foreach ($model->parents as $tree) : ?>
-                            <a href="<?= $tree->url ?>" target="_blank"
-                               title="<?= \Yii::t('skeeks/cms', 'Watch to site (opens new window)') ?>">
-                                <?= $tree->name ?>
+                            <a href="<?php echo $tree->url ?>" target="_blank"
+                               title="<?php echo \Yii::t('skeeks/cms', 'Watch to site (opens new window)') ?>">
+                                <?php echo $tree->name ?>
                                 <? if ($tree->level == 0) : ?>
-                                    [<?= $tree->site->name; ?>]
+                                    [<?php echo $tree->site->name; ?>]
                                 <? endif; ?>
                             </a>
                             /
                         <? endforeach; ?>
                     <? endif; ?>
-                    <a href="<?= $model->url ?>" target="_blank"
-                       title="<?= Yii::t('skeeks/cms', 'Watch to site (opens new window)') ?>">
-                        <?= $model->name; ?>
+                    <a href="<?php echo $model->url ?>" target="_blank"
+                       title="<?php echo Yii::t('skeeks/cms', 'Watch to site (opens new window)') ?>">
+                        <?php echo $model->name; ?>
                     </a>
                 </div>
                 <div class="pull-right">
@@ -85,30 +85,30 @@ JS
 <?php echo $form->errorSummary([$model, $model->relatedPropertiesModel]); ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Main')); ?>
 
 
 
-<?= $form->fieldRadioListBoolean($model, 'active'); ?>
+<?php echo $form->fieldRadioListBoolean($model, 'active'); ?>
 
     <div class="row">
         <div class="col-md-6">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+            <?php echo $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'name_hidden')->textInput(['maxlength' => 255])
+            <?php echo $form->field($model, 'name_hidden')->textInput(['maxlength' => 255])
                 ->hint(\Yii::t('skeeks/cms', 'Not displayed on the site')) ?>
         </div>
     </div>
 
-<?= $form->field($model, 'code')->textInput(['maxlength' => 255])
+<?php echo $form->field($model, 'code')->textInput(['maxlength' => 255])
     ->hint(\Yii::t('skeeks/cms',
         \Yii::t('skeeks/cms', 'This affects the address of the page, be careful when editing.'))); ?>
 
 
 
 
-<?= Html::checkbox("isLink", (bool)($model->redirect || $model->redirect_tree_id), [
+<?php echo Html::checkbox("isLink", (bool)($model->redirect || $model->redirect_tree_id), [
     'value' => '1',
     'label' => \Yii::t('skeeks/cms', 'This section is a link'),
     'class' => 'smartCheck',
@@ -116,7 +116,7 @@ JS
 ]); ?>
 
     <div data-listen="isLink" data-show="0" class="sx-hide">
-        <?= $form->field($model, 'tree_type_id')->widget(
+        <?php echo $form->field($model, 'tree_type_id')->widget(
             \skeeks\widget\chosen\Chosen::className(), [
             'items' => \yii\helpers\ArrayHelper::map(
                 \skeeks\cms\models\CmsTreeType::find()->active()->all(),
@@ -131,29 +131,29 @@ JS
             'On selected type of partition can depend how it will be displayed.'));
         ?>
 
-        <?= $form->field($model, 'view_file')->textInput()
+        <?php echo $form->field($model, 'view_file')->textInput()
             ->hint('@app/views/template-name || template-name'); ?>
 
     </div>
 
     <div data-listen="isLink" data-show="1" class="sx-hide">
-        <?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
+        <?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
             'content' => \Yii::t('skeeks/cms', 'Redirect')
         ]); ?>
-        <?= $form->field($model, 'redirect_code', [])->radioList([
+        <?php echo $form->field($model, 'redirect_code', [])->radioList([
             301 => 'Постоянное перенаправление [301]',
             302 => 'Временное перенаправление [302]'
         ])
             ->label(\Yii::t('skeeks/cms', 'Redirect Code')) ?>
         <div class="row">
             <div class="col-md-5">
-                <?= $form->field($model, 'redirect', [])->textInput(['maxlength' => 500])->label(\Yii::t('skeeks/cms',
+                <?php echo $form->field($model, 'redirect', [])->textInput(['maxlength' => 500])->label(\Yii::t('skeeks/cms',
                     'Redirect'))
                     ->hint(\Yii::t('skeeks/cms',
                         'Specify an absolute or relative URL for redirection, in the free form.')) ?>
             </div>
             <div class="col-md-7">
-                <?= $form->field($model, 'redirect_tree_id')->widget(
+                <?php echo $form->field($model, 'redirect_tree_id')->widget(
                     \skeeks\cms\widgets\formInputs\selectTree\SelectTree::className(),
                     [
                         "attributeSingle" => "redirect_tree_id",
@@ -169,25 +169,25 @@ JS
 
 <? if ($relatedModel->properties) : ?>
 
-    <?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
+    <?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
         'content' => \Yii::t('skeeks/cms', 'Additional properties')
     ]); ?>
 
     <? foreach ($relatedModel->properties as $property) : ?>
-        <?= $property->renderActiveForm($form); ?>
+        <?php echo $property->renderActiveForm($form); ?>
     <? endforeach; ?>
 
 <? else : ?>
     <? /*= \Yii::t('skeeks/cms','Additional properties are not set')*/ ?>
 <? endif; ?>
 
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>
 
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Announcement')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Announcement')); ?>
 
-<?= $form->field($model, 'image_id')->widget(
+<?php echo $form->field($model, 'image_id')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'accept' => 'image/*',
@@ -196,7 +196,7 @@ JS
 ); ?>
 
     <div data-listen="isLink" data-show="0" class="sx-hide">
-        <?= $form->field($model, 'description_short')->widget(
+        <?php echo $form->field($model, 'description_short')->widget(
             \skeeks\cms\widgets\formInputs\comboText\ComboTextInputWidget::className(),
             [
                 'modelAttributeSaveType' => 'description_short_type',
@@ -229,11 +229,11 @@ JS
         */ ?>
 
     </div>
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'In detal')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'In detal')); ?>
 
-<?= $form->field($model, 'image_full_id')->widget(
+<?php echo $form->field($model, 'image_full_id')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'accept' => 'image/*',
@@ -243,7 +243,7 @@ JS
 
     <div data-listen="isLink" data-show="0" class="sx-hide">
 
-        <?= $form->field($model, 'description_full')->widget(
+        <?php echo $form->field($model, 'description_full')->widget(
             \skeeks\cms\widgets\formInputs\comboText\ComboTextInputWidget::className(),
             [
                 'modelAttributeSaveType' => 'description_full_type',
@@ -251,18 +251,18 @@ JS
         ?>
 
     </div>
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'SEO')); ?>
-<?= $form->field($model, 'meta_title')->textarea(); ?>
-<?= $form->field($model, 'meta_description')->textarea(); ?>
-<?= $form->field($model, 'meta_keywords')->textarea(); ?>
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'SEO')); ?>
+<?php echo $form->field($model, 'meta_title')->textarea(); ?>
+<?php echo $form->field($model, 'meta_description')->textarea(); ?>
+<?php echo $form->field($model, 'meta_keywords')->textarea(); ?>
+<?php echo $form->fieldSetEnd() ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Images/Files')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Images/Files')); ?>
 
-<?= $form->field($model, 'imageIds')->widget(
+<?php echo $form->field($model, 'imageIds')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'accept' => 'image/*',
@@ -270,14 +270,14 @@ JS
     ]
 ); ?>
 
-<?= $form->field($model, 'fileIds')->widget(
+<?php echo $form->field($model, 'fileIds')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'multiple' => true
     ]
 ); ?>
 
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>
 
 
 <? if (!$model->isNewRecord) : ?>
@@ -295,12 +295,12 @@ JS
 
             <? if ($contents = \skeeks\cms\models\CmsContent::find()->active()->all()) : ?>
 
-                <?= $form->fieldSet(\Yii::t('skeeks/cms', 'Properties of elements')) ?>
+                <?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Properties of elements')) ?>
 
 
                 <? foreach ($contents as $content) : ?>
 
-                    <h2><?= \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
+                    <h2><?php echo \skeeks\cms\modules\admin\widgets\BlockTitleWidget::widget([
                             'content' => $content->name
                         ]); ?></h2>
                     <? $pjax = \yii\widgets\Pjax::begin(); ?>
@@ -338,7 +338,7 @@ JS
                         ]);
                     }
                     ?>
-                    <?= \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
+                    <?php echo \skeeks\cms\modules\admin\widgets\GridViewStandart::widget([
                         'dataProvider' => new \yii\data\ActiveDataProvider([
                             'query' => $query
                         ]),
@@ -420,7 +420,7 @@ JS
 
 
 
-                <?= $form->fieldSetEnd(); ?>
+                <?php echo $form->fieldSetEnd(); ?>
 
 
             <? endif; ?>
@@ -487,7 +487,7 @@ JS
     <? /* endforeach; */ ?>
 --><? /* endif; */ ?>
 
-<?= $form->buttonsCreateOrUpdate($model); ?>
+<?php echo $form->buttonsCreateOrUpdate($model); ?>
 
 <? $this->registerJs(<<<JS
     (function(sx, $, _)

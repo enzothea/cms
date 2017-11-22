@@ -10,4 +10,4 @@
  */
 /* @var $this yii\web\View */
 ?>
-<h2><?= $message; ?></h2>
+<h2><?php echo $message; ?></h2>

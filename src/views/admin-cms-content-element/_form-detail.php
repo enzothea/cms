@@ -3,9 +3,9 @@
 /* @var $model \skeeks\cms\models\CmsContentElement */
 /* @var $relatedModel \skeeks\cms\relatedProperties\models\RelatedPropertiesModel */
 ?>
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'In detal')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'In detal')); ?>
 
-<?= $form->field($model, 'image_full_id')->widget(
+<?php echo $form->field($model, 'image_full_id')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'accept' => 'image/*',
@@ -13,11 +13,11 @@
     ]
 ); ?>
 
-<?= $form->field($model, 'description_full')->widget(
+<?php echo $form->field($model, 'description_full')->widget(
     \skeeks\cms\widgets\formInputs\comboText\ComboTextInputWidget::className(),
     [
         'modelAttributeSaveType' => 'description_full_type',
     ]);
 ?>
 
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>

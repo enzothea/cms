@@ -3,9 +3,9 @@
 /* @var $model \skeeks\cms\models\CmsContentElement */
 /* @var $relatedModel \skeeks\cms\relatedProperties\models\RelatedPropertiesModel */
 ?>
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'Images/Files')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'Images/Files')); ?>
 
-<?= $form->field($model, 'imageIds')->widget(
+<?php echo $form->field($model, 'imageIds')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'accept' => 'image/*',
@@ -13,11 +13,11 @@
     ]
 ); ?>
 
-<?= $form->field($model, 'fileIds')->widget(
+<?php echo $form->field($model, 'fileIds')->widget(
     \skeeks\cms\widgets\AjaxFileUploadWidget::class,
     [
         'multiple' => true
     ]
 ); ?>
 
-<?= $form->fieldSetEnd() ?>
+<?php echo $form->fieldSetEnd() ?>

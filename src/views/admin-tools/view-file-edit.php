@@ -24,7 +24,7 @@ CSS
     'enableAjaxValidation' => false
 ]); ?>
 
-<?= $form->field($model, 'source')->label($model->rootViewFile)->widget(
+<?php echo $form->field($model, 'source')->label($model->rootViewFile)->widget(
     \skeeks\widget\codemirror\CodemirrorWidget::className(),
     [
         'preset' => 'htmlmixed',
@@ -40,6 +40,6 @@ CSS
     ]
 ); ?>
 
-<?= $form->buttonsStandart($model); ?>
+<?php echo $form->buttonsStandart($model); ?>
 
 <? \skeeks\cms\modules\admin\widgets\form\ActiveFormStyled::end(); ?>

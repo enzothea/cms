@@ -7,25 +7,25 @@ use skeeks\cms\mail\helpers\Html;
 /* @var $resetLink */
 ?>
 
-<?= Html::beginTag('h1'); ?>
-    Регистрация на сайте <?= \Yii::$app->cms->appName ?>
-<?= Html::endTag('h1'); ?>
+<?php echo Html::beginTag('h1'); ?>
+    Регистрация на сайте <?php echo \Yii::$app->cms->appName ?>
+<?php echo Html::endTag('h1'); ?>
 
-<?= Html::beginTag('p'); ?>
-    Здравствуйте!<br><br>Вы успешно зарегистрированны на сайте <?= Html::a(\Yii::$app->name,
+<?php echo Html::beginTag('p'); ?>
+    Здравствуйте!<br><br>Вы успешно зарегистрированны на сайте <?php echo Html::a(\Yii::$app->name,
     \yii\helpers\Url::home(true)) ?>.<br>
-<?= Html::endTag('p'); ?>
+<?php echo Html::endTag('p'); ?>
 
-<?= Html::beginTag('p'); ?>
+<?php echo Html::beginTag('p'); ?>
     Для авторизации на сайте используйте следующие данные:
     <br>
-    <b>Email: </b><?= $user->email; ?><br>
-    <b>Пароль: </b><?= $password; ?><br>
-<?= Html::a("Ссылка на авторизацию", \skeeks\cms\helpers\UrlHelper::construct('cms/auth/login')
+    <b>Email: </b><?php echo $user->email; ?><br>
+    <b>Пароль: </b><?php echo $password; ?><br>
+<?php echo Html::a("Ссылка на авторизацию", \skeeks\cms\helpers\UrlHelper::construct('cms/auth/login')
     ->setRef(
         \skeeks\cms\helpers\UrlHelper::construct('/cms/profile')->enableAbsolute()->toString()
     )
     ->enableAbsolute()
     ->toString()
 ) ?>
-<?= Html::endTag('p'); ?>
+<?php echo Html::endTag('p'); ?>

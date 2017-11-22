@@ -22,11 +22,11 @@ if ($filter->id) {
     'action' => '/' . \Yii::$app->request->pathInfo,
 ]); ?>
 
-<?= $form->field($searchModel, 'value')->setVisible(true)->textInput([
+<?php echo $form->field($searchModel, 'value')->setVisible(true)->textInput([
     'placeholder' => \Yii::t('skeeks/cms', 'Search by name')
 ]); ?>
 
-<?= $form->field($searchModel, 'property_id')->label(\Yii::t('skeeks/cms', 'Property'))->setVisible(true)->widget(
+<?php echo $form->field($searchModel, 'property_id')->label(\Yii::t('skeeks/cms', 'Property'))->setVisible(true)->widget(
     \skeeks\widget\chosen\Chosen::class,
     [
         'multiple' => true,

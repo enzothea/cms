@@ -116,7 +116,7 @@ JS
 --><? /* endif; */ ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'File storage')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'File storage')); ?>
 
 
 <?
@@ -129,7 +129,7 @@ $dataProvider->sort->defaultOrder = [
 ];
 
 ?>
-<?= \skeeks\cms\widgets\StorageFileManager::widget([
+<?php echo \skeeks\cms\widgets\StorageFileManager::widget([
     'clientOptions' =>
         [
             'completeUploadFile' => new \yii\web\JsExpression(<<<JS
@@ -147,7 +147,7 @@ JS
 ]); ?>
 <p></p>
 <? $dataProvider->pagination->defaultPageSize = 10; ?>
-<?= \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
+<?php echo \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
 
     'dataProvider' => $dataProvider,
     'filterModel' => $search->getLoadedModel(),
@@ -250,10 +250,10 @@ JS
 
 ]); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 
-<?= $form->fieldSet(\Yii::t('skeeks/cms', 'File manager')); ?>
+<?php echo $form->fieldSet(\Yii::t('skeeks/cms', 'File manager')); ?>
 <?
 echo \mihaildev\elfinder\ElFinder::widget([
     'controller' => 'cms/elfinder-full',
@@ -268,10 +268,10 @@ echo \mihaildev\elfinder\ElFinder::widget([
     ]
 ]);
 ?>
-<?= $form->fieldSetEnd(); ?>
+<?php echo $form->fieldSetEnd(); ?>
 
 <hr/>
-<?= \yii\helpers\Html::a("<i class='glyphicon glyphicon-question-sign'></i>", "#", [
+<?php echo \yii\helpers\Html::a("<i class='glyphicon glyphicon-question-sign'></i>", "#", [
     'class' => 'btn btn-default',
     'onclick' => "sx.dialog({'title' : '" . \Yii::t('skeeks/cms', 'Help') . "', 'content' : '#sx-help'}); return false;"
 ]); ?>

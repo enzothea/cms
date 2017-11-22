@@ -9,9 +9,9 @@ use skeeks\cms\modules\admin\widgets\ActiveForm;
 <?php $form = ActiveForm::begin(); ?>
 
 <? if ($form_id = \Yii::$app->request->get('property_id')) : ?>
-    <?= $form->field($model, 'property_id')->hiddenInput(['value' => $form_id])->label(false); ?>
+    <?php echo $form->field($model, 'property_id')->hiddenInput(['value' => $form_id])->label(false); ?>
 <? else: ?>
-    <?= $form->field($model, 'property_id')->widget(
+    <?php echo $form->field($model, 'property_id')->widget(
         \skeeks\widget\chosen\Chosen::className(), [
         'items' => \yii\helpers\ArrayHelper::map(
             \skeeks\cms\models\CmsTreeTypeProperty::find()->all(),
@@ -22,9 +22,9 @@ use skeeks\cms\modules\admin\widgets\ActiveForm;
     ?>
 <? endif; ?>
 
-<?= $form->field($model, 'value')->textInput(['maxlength' => 255]) ?>
-<?= $form->field($model, 'code')->textInput(['maxlength' => 32]) ?>
+<?php echo $form->field($model, 'value')->textInput(['maxlength' => 255]) ?>
+<?php echo $form->field($model, 'code')->textInput(['maxlength' => 32]) ?>
 
-<?= $form->buttonsCreateOrUpdate($model); ?>
+<?php echo $form->buttonsCreateOrUpdate($model); ?>
 
 <?php ActiveForm::end(); ?>

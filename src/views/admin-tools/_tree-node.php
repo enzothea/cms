@@ -30,19 +30,19 @@ if ($additionalName) {
 $controllElement = \Yii::$app->controller->renderNodeControll($model);
 ?>
 
-<?= $controllElement; ?>
-<div class="sx-label-node level-<?= $model->level; ?> status-<?= $model->active; ?>">
-    <a href="<?= $widget->getOpenCloseLink($model); ?>">
-        <?= $result; ?>
+<?php echo $controllElement; ?>
+<div class="sx-label-node level-<?php echo $model->level; ?> status-<?php echo $model->active; ?>">
+    <a href="<?php echo $widget->getOpenCloseLink($model); ?>">
+        <?php echo $result; ?>
     </a>
 </div>
 
 <!-- Possible actions -->
 <div class="sx-controll-node row">
     <div class="pull-left sx-controll-act">
-        <a href="<?= $model->absoluteUrl; ?>" target="_blank"
+        <a href="<?php echo $model->absoluteUrl; ?>" target="_blank"
            class="btn-tree-node-controll btn btn-default btn-sm show-at-site"
-           title="<?= \Yii::t('skeeks/cms', "Show at site"); ?>">
+           title="<?php echo \Yii::t('skeeks/cms', "Show at site"); ?>">
             <span class="glyphicon glyphicon-eye-open"></span>
         </a>
     </div>
@@ -50,7 +50,7 @@ $controllElement = \Yii::$app->controller->renderNodeControll($model);
 
 <? if ($model->treeType) : ?>
     <div class="pull-right sx-tree-type">
-        <?= $model->treeType->name; ?>
+        <?php echo $model->treeType->name; ?>
     </div>
 <? endif; ?>
 
